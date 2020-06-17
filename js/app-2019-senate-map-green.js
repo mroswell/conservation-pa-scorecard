@@ -1,4 +1,5 @@
-let public_spreadsheet_url = "1q2r9zczACPL6XArWEAVBbSgEUd9u8v3upp6-1L84_OI";
+//let public_spreadsheet_url = "1q2r9zczACPL6XArWEAVBbSgEUd9u8v3upp6-1L84_OI";
+let public_spreadsheet_id = "17yxvdTk33zFh92z7CE4I2FBkKyLI4F-ePu3P0g1G4Ns";
 let boundaryLayer;
 let PAboundaryLayer;
 let PADistricts = {};
@@ -30,7 +31,7 @@ let map = L.map("map", {
 
 function init() {
     Tabletop.init({
-        key: public_spreadsheet_url,
+        key: public_spreadsheet_id,
         callback: showInfo,
         // simpleSheet: true,
         parseNumbers: true
@@ -39,8 +40,20 @@ function init() {
 
 let geoStyle = function(data) {
     // let legisId = data.properties.legis_id;
-    let legisId = parseInt(data.properties.SLDUST);
-    let scoreColor = getColor( PADistricts[legisId].score_2019);
+    let legisId = parseInt(data.properties.NAME);
+    console.log(typeof(legisId));
+    console.log("legisId", legisId);
+    console.log("PADistricts", PADistricts);
+    console.log("Districts", PADistricts[legisId]);
+    console.log(PADistricts.keys);
+    for (key in PADistricts) {
+        console.log(typeof key);
+    }
+    console.log(typeof(PADistricts[legisId]));
+    //let scoreNum= parseInt(PADistricts[legisId].Score);
+   // console.log("scoreNum",scoreNum);
+    //let scoreColor = getColor(parseInt(PADistricts[legisId].Score));
+    let scoreColor = "#ffc589";
 
     return {
         fillColor: scoreColor,
@@ -73,13 +86,16 @@ $(document).ready(function() {
 function showInfo(sheet_data, tabletop) {
     let scoreColor;
     let lifetimeScoreColor;
-    $.each(tabletop.sheets("nj-senate").all(), function(i, member) {
-        scoreColor = getColor(member.score_2019);
+    $.each(tabletop.sheets("PA Senate").all(), function(i, member) {
+        console.log("member", member);
+        scoreColor = getColor(parseInt(member.Score));
         member['scoreColor'] = scoreColor;
-        lifetimeScoreColor = getColor(member.lifetime_score);
+        console.log('scoreColor', scoreColor);
+        lifetimeScoreColor = getColor(parseInt(member.LifetimeScore));
         member['lifetimeScoreColor'] = lifetimeScoreColor;
-        if (member.legis_id) {
-        PADistricts[member.legis_id] = member;
+        if (member.District) {
+            PADistricts[member.District] = member;
+            console.log("yahoo!", PADistricts[member.District]);
        }
     });
     loadGeo();
@@ -99,11 +115,11 @@ function loadGeo() {
         }
     );
     tileLayer.addTo(map);
-
-    boundaryLayer = L.geoJson(nj_legislative_boundary_map, {
-        onEachFeature: onEachFeature,
-        style: data => geoStyle(data)
-    }).addTo(map);
+    //
+    // boundaryLayer = L.geoJson(nj_legislative_boundary_map, {
+    //     onEachFeature: onEachFeature,
+    //     style: data => geoStyle(data)
+    // }).addTo(map);
 }
 let myStyle = {
     "fillColor": "#ffffff",
@@ -112,7 +128,8 @@ let myStyle = {
     "opacity": 0.65
 };
    PAboundaryLayer = L.geoJson(pa_state_senate_boundary_map, {
-       style: myStyle
+       onEachFeature: onEachFeature,
+       style: data => geoStyle(data)
    }).addTo(map);
 
 function getColor(score) {
@@ -126,7 +143,7 @@ function getColor(score) {
 
 function highlightFeature(e) {
     let layer = e.target;
-    let legisId = parseInt(layer.feature.properties.SLDUST);
+    let legisId = parseInt(layer.feature.properties.NAME);
     let memberDetail = PADistricts[legisId];
 
     layer.setStyle({
@@ -153,7 +170,7 @@ function resetHighlight(e) {
 function mapMemberDetailClick(e) {
     freeze = 1;
     let boundary = e.target;
-    let legisId = parseInt(boundary.feature.properties.SLDUST);
+    let legisId = parseInt(boundary.feature.properties.NAME);
     let member = memberDetailFunction(legisId);
 }
 

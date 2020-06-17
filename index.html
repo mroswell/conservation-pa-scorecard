@@ -122,83 +122,83 @@
             <button type='button' id='close' class='close'>&times;</button>
             <br>
             <p class="child-header" >
-                <img src="{{{image}}}" class="img-fluid justify-content-center" alt="Photo">
-                <br>{{{full_name}}} ({{{party}}})
-                <br>District {{{legis_id}}}
+                <img src="{{{photo}}}" class="img-fluid justify-content-center" alt="Photo">
+                <br>{{{full_name}}} ({{{Party}}})
+                <br>District {{{District}}}
             </p>
 
-            <div class="container">
-                <div class="row justify-content-center mb-3 mt-1">
-                    <div class="col-5"  style="text-align:center">
-                        2019-2020 Score<br> <span class="score" style="background-color: {{ scoreColor }}">{{{score_2019}}}%</span>
-                    </div>
-                    <div class="col-5" style="text-align:center">
-                        Lifetime Score<br><span class="score" style="background-color: {{ lifetimeScoreColor }}">{{{lifetime_score}}}%</span>
-                    </div>
-                </div>
-            </div>
-            <p>{{#if_eq bill1 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_0">1. Upholding Paris Climate Accord</a></p>
-            <p>{{#if_eq bill2 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_1">2. Electric School Buses</a></p>
-            <p>{{#if_eq bill3 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_2">3. Participation in the Regional Greenhouse Gas Initiative</a></p>
-            <p>{{#if_eq bill4 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_3">4. Prohibits Offshore Oil and Gas Development in State Waters (STOP Act)</a></p>
-            <p>{{#if_eq bill5 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_4">5. Electric Vehicle Charging Infrastructure</a></p>
-            <p>{{#if_eq bill6 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_5">6. One-Hour Water Boil Notices</a></p>
-            <p>{{#if_eq bill7 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_6">7. Establishes Clean Vehicle Task Force</a></p>
-            <p>{{#if_eq bill8 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_7">8. Clean Renewable Energy Bill</a></p>
-            <p>{{#if_eq bill9 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_8">9. Automatic Voter Registration</a></p>
-            <p>{{#if_eq bill10 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_9">10. Prohibits Smoking at Public Beaches</a></p>
-            <p>{{#if_eq bill11 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_10">11. Stormwater Utilities</a></p>
-            <p>{{#if_eq bill12 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_11">12. Public Right of Access to Waterways and Beaches</a></p>
-            <p>{{#if_eq bill13 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_12">13. Condemns EPA decision to withdraw from "Once-In-Always-In” (Clean Air Act)</a></p>
-            <p>{{#if_eq bill14 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_13">14. Concerns Fracking Wastewater</a></p>
-            <p>{{#if_eq bill15 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_14">15. Concerns Regulations for Interstate Natural Gas Pipelines</a></p>
-            <p>{{#if_eq bill16 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_15">16. Concerns Fracking Wastewater and the Delaware River Basin</a></p>
-            <p>{{#if_eq bill17 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_16">17. Authorizes Prescribed Burning</a></p>
-            <p>{{#if_eq bill18 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_17">18. Updates Global Warming Response Act</a></p>
-            <p>{{#if_eq bill19 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_18">19. Partial Disclosure Bill</a></p>
-            <p>{{#if_eq bill20 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_19">20. Permanent Open Space Funding</a></p>
-      <br>
-        </div>
+<!--            <div class="container">-->
+<!--                <div class="row justify-content-center mb-3 mt-1">-->
+<!--                    <div class="col-5"  style="text-align:center">-->
+<!--                        2019-2020 Score<br> <span class="score" style="background-color: {{ scoreColor }}">{{{score_2019}}}%</span>-->
+<!--                    </div>-->
+<!--                    <div class="col-5" style="text-align:center">-->
+<!--                        Lifetime Score<br><span class="score" style="background-color: {{ lifetimeScoreColor }}">{{{lifetime_score}}}%</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <p>{{#if_eq bill1 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
+<!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
+<!--                {{/if_eq}} <a href="#bookmark_0">1. Upholding Paris Climate Accord</a></p>-->
+<!--            <p>{{#if_eq bill2 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
+<!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
+<!--                {{/if_eq}} <a href="#bookmark_1">2. Electric School Buses</a></p>-->
+<!--            <p>{{#if_eq bill3 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
+<!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
+<!--                {{/if_eq}} <a href="#bookmark_2">3. Participation in the Regional Greenhouse Gas Initiative</a></p>-->
+<!--            <p>{{#if_eq bill4 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
+<!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
+<!--                {{/if_eq}} <a href="#bookmark_3">4. Prohibits Offshore Oil and Gas Development in State Waters (STOP Act)</a></p>-->
+<!--            <p>{{#if_eq bill5 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
+<!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
+<!--                {{/if_eq}} <a href="#bookmark_4">5. Electric Vehicle Charging Infrastructure</a></p>-->
+<!--            <p>{{#if_eq bill6 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
+<!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
+<!--                {{/if_eq}} <a href="#bookmark_5">6. One-Hour Water Boil Notices</a></p>-->
+<!--            <p>{{#if_eq bill7 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
+<!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
+<!--                {{/if_eq}} <a href="#bookmark_6">7. Establishes Clean Vehicle Task Force</a></p>-->
+<!--            <p>{{#if_eq bill8 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
+<!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
+<!--                {{/if_eq}} <a href="#bookmark_7">8. Clean Renewable Energy Bill</a></p>-->
+<!--            <p>{{#if_eq bill9 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
+<!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
+<!--                {{/if_eq}} <a href="#bookmark_8">9. Automatic Voter Registration</a></p>-->
+<!--            <p>{{#if_eq bill10 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
+<!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
+<!--                {{/if_eq}} <a href="#bookmark_9">10. Prohibits Smoking at Public Beaches</a></p>-->
+<!--            <p>{{#if_eq bill11 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
+<!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
+<!--                {{/if_eq}} <a href="#bookmark_10">11. Stormwater Utilities</a></p>-->
+<!--            <p>{{#if_eq bill12 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
+<!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
+<!--                {{/if_eq}} <a href="#bookmark_11">12. Public Right of Access to Waterways and Beaches</a></p>-->
+<!--            <p>{{#if_eq bill13 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
+<!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
+<!--                {{/if_eq}} <a href="#bookmark_12">13. Condemns EPA decision to withdraw from "Once-In-Always-In” (Clean Air Act)</a></p>-->
+<!--            <p>{{#if_eq bill14 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
+<!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
+<!--                {{/if_eq}} <a href="#bookmark_13">14. Concerns Fracking Wastewater</a></p>-->
+<!--            <p>{{#if_eq bill15 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
+<!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
+<!--                {{/if_eq}} <a href="#bookmark_14">15. Concerns Regulations for Interstate Natural Gas Pipelines</a></p>-->
+<!--            <p>{{#if_eq bill16 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
+<!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
+<!--                {{/if_eq}} <a href="#bookmark_15">16. Concerns Fracking Wastewater and the Delaware River Basin</a></p>-->
+<!--            <p>{{#if_eq bill17 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
+<!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
+<!--                {{/if_eq}} <a href="#bookmark_16">17. Authorizes Prescribed Burning</a></p>-->
+<!--            <p>{{#if_eq bill18 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
+<!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
+<!--                {{/if_eq}} <a href="#bookmark_17">18. Updates Global Warming Response Act</a></p>-->
+<!--            <p>{{#if_eq bill19 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
+<!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
+<!--                {{/if_eq}} <a href="#bookmark_18">19. Partial Disclosure Bill</a></p>-->
+<!--            <p>{{#if_eq bill20 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
+<!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
+<!--                {{/if_eq}} <a href="#bookmark_19">20. Permanent Open Space Funding</a></p>-->
+<!--      <br>-->
+<!--        </div>-->
     </div>
 </script>
 <script>
@@ -222,6 +222,9 @@
             return opts.inverse(this);
         }
     });
+    Handlebars.registerHelper('abbrev', function (aString) {
+        return aString.charAt(0)
+    })
 </script>
 </body>
 </html>
