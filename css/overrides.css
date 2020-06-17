@@ -28,11 +28,12 @@
   height:180px;
   padding:20px;
   width:320px;
+
 }
 
 .scorecard-branding img {
-  height:140px;
-  width:264px;
+  /*height:140px;*/
+  width:400px;
 }
 
 header.scorecard-header h2 {
@@ -233,8 +234,8 @@ body .feature-wrapper {
 
   /* Sidebar & Map */
 
-  #sidebar-and-map #sidebar {width:calc(100% - 520px);}
-  #sidebar-and-map #map-and-legend {width:500px;}
+  #sidebar-and-map #sidebar {width:calc(100% - 587px);}
+  #sidebar-and-map #map-and-legend {width:557px;}
 
 
   /* Lower Content */
