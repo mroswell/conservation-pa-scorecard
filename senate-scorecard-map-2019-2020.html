@@ -70,7 +70,7 @@
                     <ul class="legend-labels">
                         <li>Legend:</li>
                         <li><span style="background:#fefefe; border: 2px solid #b0b0b0;"></span>No Score</li>
-                        <li><span style="background:#ff0000; border: 2px solid transparent;"></span>0%</li>
+                        <li><span style="background:#F00604; border: 2px solid transparent;"></span>0%</li>
                         <li><span style="background:#FC8400; border: 2px solid transparent;"></span>1-24%</li>
                         <li><span style="background:#FDC300; border: 2px solid transparent;"></span>25-49%</li>
                         <li><span style="background:#FEF200; border: 2px solid transparent;"></span>50-74%</li>
@@ -149,7 +149,7 @@
             <br>
             <p class="child-header" >
                 <img src="{{{photo}}}" class="img-fluid justify-content-center" alt="Photo">
-                <br>{{{full_name}}} ({{{Party}}})
+                <br>{{{full_name}}} ({{{abbrev Party}}})
                 <br>District {{{District}}}
             </p>
 
@@ -249,7 +249,7 @@
         }
     });
     Handlebars.registerHelper('abbrev', function (aString) {
-        return aString.charAt(0)
+        return aString.charAt(0);
     })
 </script>
 </body>

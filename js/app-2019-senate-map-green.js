@@ -9,11 +9,11 @@ let clickedMemberNumber;
 let vote_context =  {
     "priority_votes": [
         {
-            "billnumber": "",
-            "billname": "",
-            "billdescription": "",
-            "outcome": "",
-            "stance": ""
+            "billnumber": "Bill #",
+            "billname": "Bill name",
+            "billdescription": "Description goes here",
+            "outcome": "Outcome",
+            "stance": "Stance"
         },
     ]
 };
@@ -120,7 +120,9 @@ function getColor(score) {
                 score > 49 ? '#FEF200' :
                     score > 24 ? '#FDC300' :
                         score > 0 ? '#FC8400' :
-                            'rgb(255,0,0)';
+                            '#F00604';
+                            // '#EE0705';
+                            //'#DE0F0A';
 }
 
 function highlightFeature(e) {
