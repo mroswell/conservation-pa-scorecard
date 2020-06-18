@@ -45,7 +45,9 @@ header.scorecard-header h2 {
   font-family: 'Verdana', sans-serif;
   font-weight: bold;
   /*color: #6CB503;*/
-  color: #0b7f0d;
+  /*color: #0b7f0d;*/
+  /*color: #075A0A;*/
+  color: #1b890b;
 }
 
 
@@ -192,7 +194,7 @@ body .feature-wrapper {
   header.scorecard-header h2 {
     font-size: 24px;
     font-size: 20px;
-    padding: 20px 0 20px 15px;
+    padding: 26px 0 20px 22px;
   }
   /* Lower Content */
 
@@ -207,7 +209,10 @@ body .feature-wrapper {
     align-items:flex-end;
     flex-direction:row;
     justify-content:left;
-    position: relative
+    position: relative;
+    flex-wrap: wrap;
+    /*flex-flow: column wrap;*/
+
   }
 
   header.scorecard-header h2 {text-align:left;}
@@ -249,27 +254,4 @@ body .feature-wrapper {
 
 }
 
-div#scorecard-legend {
-  float: left;
-  /*width: calc(100% - 370px);*/
-  /*min-width: 360px;*/
-}
 
-div#scorecard-legend ul {
-  padding: 2rem 0;
-}
-div#scorecard-legend ul li {
-  display: block;
-  float: left;
-  font-size: 12px;
-  text-align: center;
-  width: 65px;
-  padding: 0;
-}
-
-div#scorecard-legend ul li span {
-  display: block;
-  height: 15px;
-}
-
-button {font-size: small;}

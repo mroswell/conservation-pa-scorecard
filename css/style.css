@@ -332,3 +332,61 @@ span > i {
 img.img-fluid {
     height: 150px;
 }
+
+div#scorecard-legend {
+    float: left;
+    /*width: calc(100% - 370px);*/
+    /*min-width: 360px;*/
+}
+
+div#scorecard-legend ul {
+    padding: 2rem 0;
+}
+div#scorecard-legend ul li {
+    display: block;
+    float: left;
+    font-size: 12px;
+    text-align: center;
+    width: 65px;
+    padding: 0;
+}
+
+div#scorecard-legend ul li span {
+    display: block;
+    height: 15px;
+}
+
+button.btn {font-size: small;}
+
+
+button.btn.btn-outline-primary {
+    color: #085A0A;
+    border-color: #085A0A;
+    border-top-color: #085A0A;
+    border-right-color: #085A0A;
+    border-bottom-color: #085A0A;
+    border-left-color: #085A0A;
+    border-top-color: #085A0A;
+    border-right-color: #085A0A;
+    border-bottom-color: #085A0A;
+    border-left-color: #085A0A;
+}
+button.btn.btn-outline-primary:hover {
+    color: #fff;
+    background-color:  #085A0A;
+    /*#007bff;*/
+    border-color:  #085A0A;
+    border-top-color:  #085A0A;
+    border-right-color:  #085A0A;
+    border-bottom-color:  #085A0A;
+    border-left-color:  #085A0A;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show>.btn-outline-primary.dropdown-toggle {
+    color: #085A0A;
+
+}
+
+.btn-outline-primary.focus, .btn-outline-primary:focus {
+    box-shadow: none;
+}

@@ -196,14 +196,20 @@ document.getElementById("buttonState").addEventListener("click", function () {
 });
 
 document.getElementById("buttonPittsburgh").addEventListener("click", function () {
-    map.flyTo([40.440624, -79.995888], 9, {
+    map.flyTo([40.43, -79.82], 9.25, {
         animate: true,
         duration: 1.6 // in seconds
     });
 });
 
 document.getElementById("buttonPhiladelphia").addEventListener("click", function () {
-    map.flyTo([40, -75.4], 9, {
+    map.flyTo([40, -75.4], 9.25, {
+        animate: true,
+        duration: 1.6 // in seconds
+    });
+});
+document.getElementById("buttonAllentown").addEventListener("click", function () {
+    map.flyTo([41, -75.5], 9, {
         animate: true,
         duration: 1.6 // in seconds
     });

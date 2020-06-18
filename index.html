@@ -14,8 +14,8 @@
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Nunito+Sans|Roboto+Condenseda|Roboto:400,700,900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico"/>
     <link rel="stylesheet" href="css/senate-style-2019.css">
-    <link rel="stylesheet" href="css/style.css?11">
-    <link rel="stylesheet" href="css/overrides.css?2">
+    <link rel="stylesheet" href="css/style.css?13">
+    <link rel="stylesheet" href="css/overrides.css?3">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" crossorigin=""/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -36,7 +36,7 @@
               <i class="fab fa-twitter-square fa-2x"></i></a>
           <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fscorecard.conservationpa.org&amp;t=Pennsylvania%20Environmental%20Scorecard" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
       </div>
-		<h2>Pennsylvania Environmental Scorecard<br />2019-2020</h2>
+		<h2>Pennsylvania Environmental Scorecard 2019-2020</h2>
 	</section>
 </header>
 <div class="feature-wrapper pt-5 pb-5 mt-5 mt-lg-0">
@@ -60,9 +60,10 @@
 <!--                    </ul>-->
 <!--                </div>-->
                 <div>
-                    <button id="buttonState">Pennsylvania</button>
-                <button id="buttonPittsburgh">Zoom to Pittsburgh</button>
-                <button id="buttonPhiladelphia">Zoom to Philadelphia</button>
+                    <button id="buttonState" type="button" class="btn btn-outline-primary">Pennsylvania</button>
+                <button id="buttonPittsburgh" type="button" class="btn btn-outline-primary">Pittsburgh</button>
+                <button id="buttonPhiladelphia" type="button" class="btn btn-outline-primary">Philadelphia</button>
+                <button id="buttonAllentown" type="button" class="btn btn-outline-primary">Allentown/Hazelton/Scranton</button>
                 </div>
 
                 <div id="scorecard-legend">
@@ -109,7 +110,7 @@
 
 <script type="text/javascript" src="maps/nj_boundaries.js"></script>
 <script type="text/javascript"  src="maps/cb_2019_pa_sldu_500k.js?5va15"></script>
-<script src="js/app-2019-senate-map-green.js?9"></script>
+<script src="js/app-2019-senate-map-green.js?11"></script>
 
 <script id="welcome-map-help" type="text/x-handlebars-template">
     <div class="entry-default-text" style="padding-top:14px; display:block;">
