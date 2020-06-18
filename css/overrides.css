@@ -25,9 +25,10 @@
 .scorecard-branding {
   display:block;
   font-size:0;
-  height:180px;
-  padding:20px;
-  width:320px;
+  height:80px;
+  padding:15px 0 0 20px;
+  /*width:320px;*/
+  /*width:100%;*/
 
 }
 
@@ -188,9 +189,11 @@ body .feature-wrapper {
 
 @media (min-width:600px) {
 
-  header.scorecard-header h2 {font-size:38px;}
-
-
+  header.scorecard-header h2 {
+    font-size: 24px;
+    font-size: 20px;
+    padding: 20px 0 20px 15px;
+  }
   /* Lower Content */
 
   #priorityVotes .entry {width:calc(50% - 24px);}
@@ -246,21 +249,6 @@ body .feature-wrapper {
 
 }
 
-
-/*.legend {*/
-/*  text-align: left;*/
-/*  line-height: 18px;*/
-/*  color: #555;*/
-/*}*/
-
-/*.legend i {*/
-/*  width: 18px;*/
-/*  height: 18px;*/
-/*  float: left;*/
-/*  margin-right: 8px;*/
-/*  opacity: 0.7;*/
-/*}*/
-
 div#scorecard-legend {
   float: left;
   /*width: calc(100% - 370px);*/
@@ -283,3 +271,5 @@ div#scorecard-legend ul li span {
   display: block;
   height: 15px;
 }
+
+button {font-size: small;}

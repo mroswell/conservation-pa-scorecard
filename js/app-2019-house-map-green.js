@@ -103,14 +103,26 @@ function loadGeo() {
         style: data => geoStyle(data)
     }).addTo(map);
         }
+// function getColor(score) {
+//     return score === "NIO" ? '#fefefe' :
+//         score > 80 ? '#82BC00' : //' '#4EAB07' :
+//             score > 60 ? '#82e0c3' :
+//                 score > 40 ? '#FEF200' :
+//                     score > 20 ? '#FCA300' :
+//                             'rgb(255,0,0)';
+// }
+
+// get color depending on score value
 function getColor(score) {
-    return score === "NIO" ? '#fefefe' :
-        score > 80 ? '#82BC00' : //' '#4EAB07' :
-            score > 60 ? '#82e0c3' :
-                score > 40 ? '#FEF200' :
-                    score > 20 ? '#FCA300' :
+    return score === "Medical leave" ? '#fefefe' :
+        score > 99 ? '#4EAB07' :
+            score > 74 ? '#82e0c3' :
+                score > 49 ? '#FEF200' :
+                    score > 24 ? '#FDC300' :
+                        score > 0 ? '#FC8400' :
                             'rgb(255,0,0)';
 }
+
 
 function highlightFeature(e) {
     let layer = e.target;
@@ -177,6 +189,7 @@ function clearInfobox() {
     let $heading = $(".entry-default-text h4");
     $heading.html("Map Help");
 }
+
 document.getElementById("buttonState").addEventListener("click", function () {
     map.flyTo([40.09, -77.6728], 7, {
         animate: true,
@@ -192,8 +205,9 @@ document.getElementById("buttonPittsburgh").addEventListener("click", function (
 });
 
 document.getElementById("buttonPhiladelphia").addEventListener("click", function () {
-    map.flyTo([40, -75.4], 9, {
+    map.flyTo([40, -75.4], 9.25, {
         animate: true,
         duration: 1.6 // in seconds
     });
 });
+
