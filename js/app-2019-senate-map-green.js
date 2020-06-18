@@ -1,6 +1,4 @@
-//let public_spreadsheet_url = "1q2r9zczACPL6XArWEAVBbSgEUd9u8v3upp6-1L84_OI";
 let public_spreadsheet_id = "17yxvdTk33zFh92z7CE4I2FBkKyLI4F-ePu3P0g1G4Ns";
-let boundaryLayer;
 let PAboundaryLayer;
 let PADistricts = {};
 let app = {};
@@ -11,11 +9,11 @@ let clickedMemberNumber;
 let vote_context =  {
     "priority_votes": [
         {
-            "billnumber": "S598",
-            "billname": "Upholds Paris Climate Accord",
-            "billdescription": "Requires New Jersey to join the U.S. Climate Alliance to uphold the Paris Climate Accord, lower greenhouse gas emissions, and address the threats posed by climate change in accordance with the goals established by the alliance. This action is in response to President withdrawal from the Paris Accord.",
-            "outcome": "Passed by the Senate (26-12), Passed by the Assembly (49-23), Signed by the Governor P.L. 2018, c. 3",
-            "stance": "Support"
+            "billnumber": "",
+            "billname": "",
+            "billdescription": "",
+            "outcome": "",
+            "stance": ""
         },
     ]
 };
@@ -39,25 +37,12 @@ function init() {
 }
 
 let geoStyle = function(data) {
-    // let legisId = data.properties.legis_id;
-    let legisId = parseInt(data.properties.NAME);
-    console.log(typeof(legisId));
-    console.log("legisId", legisId);
-    console.log("PADistricts", PADistricts);
-    console.log("Districts", PADistricts[legisId]);
-    console.log(PADistricts.keys);
-    for (key in PADistricts) {
-        console.log(typeof key);
-    }
-    console.log(typeof(PADistricts[legisId]));
-    //let scoreNum= parseInt(PADistricts[legisId].Score);
-   // console.log("scoreNum",scoreNum);
-    //let scoreColor = getColor(parseInt(PADistricts[legisId].Score));
-    let scoreColor = "#ffc589";
+    let legisId = data.properties.NAME;
+    let scoreColor = getColor(parseInt(PADistricts[legisId].Score));
 
     return {
         fillColor: scoreColor,
-        weight: 2,
+        weight: 1,
         opacity: 0.9,
         color: "#fefefe",
         dashArray: "0",
@@ -80,22 +65,19 @@ $(document).ready(function() {
 
     let html = app.template(vote_context);
     $("#priorityVotes").append(html);
-
-
 });
+
 function showInfo(sheet_data, tabletop) {
     let scoreColor;
     let lifetimeScoreColor;
     $.each(tabletop.sheets("PA Senate").all(), function(i, member) {
-        console.log("member", member);
         scoreColor = getColor(parseInt(member.Score));
         member['scoreColor'] = scoreColor;
-        console.log('scoreColor', scoreColor);
-        lifetimeScoreColor = getColor(parseInt(member.LifetimeScore));
+        console.log(member);
+        lifetimeScoreColor = getColor(parseInt(member["Lifetime Score"]));
         member['lifetimeScoreColor'] = lifetimeScoreColor;
         if (member.District) {
             PADistricts[member.District] = member;
-            console.log("yahoo!", PADistricts[member.District]);
        }
     });
     loadGeo();
@@ -115,23 +97,12 @@ function loadGeo() {
         }
     );
     tileLayer.addTo(map);
-    //
-    // boundaryLayer = L.geoJson(nj_legislative_boundary_map, {
-    //     onEachFeature: onEachFeature,
-    //     style: data => geoStyle(data)
-    // }).addTo(map);
-}
-let myStyle = {
-    "fillColor": "#ffffff",
-    "color": "#ff7800",
-    "weight": 2,
-    "opacity": 0.65
-};
-   PAboundaryLayer = L.geoJson(pa_state_senate_boundary_map, {
-       onEachFeature: onEachFeature,
-       style: data => geoStyle(data)
-   }).addTo(map);
 
+    PAboundaryLayer = L.geoJson(pa_state_senate_boundary_map, {
+        onEachFeature: onEachFeature,
+        style: data => geoStyle(data)
+    }).addTo(map);
+}
 function getColor(score) {
     return score === "NIO" ? '#fefefe' :
         score > 80 ? '#82BC00' : //' '#4EAB07' :
@@ -163,7 +134,7 @@ function highlightFeature(e) {
 
 function resetHighlight(e) {
     let layer = e.target
-    boundaryLayer.resetStyle(layer);
+    PAboundaryLayer.resetStyle(layer);
     // let districtNumber = PADistricts.feature.properties.legis_id;
 }
 
