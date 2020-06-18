@@ -15,7 +15,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico"/>
     <link rel="stylesheet" href="css/senate-style-2019.css">
     <link rel="stylesheet" href="css/style.css?11">
-    <link rel="stylesheet" href="css/overrides.css">
+    <link rel="stylesheet" href="css/overrides.css?1">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" crossorigin=""/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -45,15 +45,25 @@
         <div class="row mt-2 mb-2 navigation-buttons">
             <div class="col-4 default-text">
                 <ul class="nav nav-pills flex-column flex-sm-row">
-                    <a style="background-color: #0c0b3e;" class="flex-fill text-sm-center nav-link active" href="#">Senate</a>
+                    <a style="background-color: #085A0A;" class="flex-fill text-sm-center nav-link active" href="#">Senate</a>
                     <a style="background-color: white; color: #0c0b3e; " class="flex-fill text-sm-center nav-link active"  href="house-scorecard-map-2019-2020.html">House</a>
-
                 </ul>
             </div>
         </div>
         <div class="row" id="sidebar-and-map">
             <div id="sidebar" class="default-text"></div>
             <div id="map-and-legend">
+<!--                <div class="col-4 default-text">-->
+<!--                    <ul class="nav nav-pills flex-column flex-sm-row">-->
+<!--                        <a id="buttonPittsburgh" style="background-color: white;  color: #0c0b3e;" class="flex-fill text-sm-center nav-link active" href="#">Pittsburgh</a>-->
+<!--                        <a id="buttonPhiladelphia" style="background-color: white; color: #0c0b3e; " class="flex-fill text-sm-center nav-link active"  href="house-scorecard-map-2019-2020.html">Philadelphia</a>-->
+<!--                    </ul>-->
+<!--                </div>-->
+                <div>
+                    <button id="buttonState">Pennsylvania</button>
+                <button id="buttonPittsburgh">Zoom to Pittsburgh</button>
+                <button id="buttonPhiladelphia">Zoom to Philadelphia</button>
+                </div>
             	<div id="map-legend">
 	            	<p class="map-legend">Legend:
 		            	<span class="legend-item quintile-1">0&ndash;20%</span>
@@ -84,7 +94,7 @@
 
 <script type="text/javascript" src="maps/nj_boundaries.js"></script>
 <script type="text/javascript"  src="maps/cb_2019_pa_sldu_500k.js?5va15"></script>
-<script src="js/app-2019-senate-map-green.js?8"></script>
+<script src="js/app-2019-senate-map-green.js?9"></script>
 
 <script id="welcome-map-help" type="text/x-handlebars-template">
     <div class="entry-default-text" style="padding-top:14px; display:block;">

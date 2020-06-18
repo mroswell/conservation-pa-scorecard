@@ -177,3 +177,23 @@ function clearInfobox() {
     let $heading = $(".entry-default-text h4");
     $heading.html("Map Help");
 }
+document.getElementById("buttonState").addEventListener("click", function () {
+    map.flyTo([40.09, -77.6728], 7, {
+        animate: true,
+        duration: 1 // in seconds
+    });
+});
+
+document.getElementById("buttonPittsburgh").addEventListener("click", function () {
+    map.flyTo([40.440624, -79.995888], 9, {
+        animate: true,
+        duration: 1.6 // in seconds
+    });
+});
+
+document.getElementById("buttonPhiladelphia").addEventListener("click", function () {
+    map.flyTo([40, -75.4], 9, {
+        animate: true,
+        duration: 1.6 // in seconds
+    });
+});

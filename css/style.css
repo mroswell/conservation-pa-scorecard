@@ -5,6 +5,7 @@ html {
 body {
     color: #0B8973;
 }
+
 .entry {
     float: left;
     width: 160px;
@@ -146,7 +147,7 @@ p.info-title {
 h2, h4, h5 {
     font-size: 2em;
     color: #0c0b3e;
-    /*text-transform: uppercase;*/
+/*text-transform: uppercase;*/
 }
 
 .custom-icon {
