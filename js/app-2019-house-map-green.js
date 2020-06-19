@@ -24,17 +24,56 @@ let map = L.map("map", {
     minZoom: 6
 }).setView([40.09, -77.6728], 7);
 
-// var map = L.map('map', {scrollWheelZoom: true}).setView([45.3, -69],7);
 
+    function init() {
+        Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vT-EGPUgz964sLRYik0FuS8ZPRnx1OcItugh7olxLdH4dICmR6qn2luZtT4X0UgA7-d_a18nsrm3Xq6/pub?output=csv', {
+            download: true,
+            header: true,
+            complete: showInfo
+       })
+    }
 
-function init() {
-    Tabletop.init({
-        key: public_spreadsheet_id,
-        callback: showInfo,
-        // simpleSheet: true,
-        parseNumbers: true
+window.addEventListener("DOMContentLoaded", init);
+
+function showInfo(results) {
+    var data = results.data;
+    let scoreColor;
+    let lifetimeScoreColor;
+
+    $.each(data, function(i, member) {
+        scoreColor = getColor(parseInt(member.Score));
+        member['scoreColor'] = scoreColor;
+        lifetimeScoreColor = getColor(parseInt(member["Lifetime Score"]));
+        member['lifetimeScoreColor'] = lifetimeScoreColor;
+        if (member.District) {
+            PADistricts[member.District] = member;
+        }
     });
+
+    loadGeo();
+
+    function loadGeo() {
+        let tileLayer = L.tileLayer(
+            "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
+            {
+                maxZoom: 18,
+                minZoom: 7,
+                attribution:
+                    'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                    '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                    'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                id: "mapbox.light"
+            }
+        );
+        tileLayer.addTo(map);
+
+        PAboundaryLayer = L.geoJson(pa_state_house_boundary_map, {
+            onEachFeature: onEachFeature,
+            style: data => geoStyle(data)
+        }).addTo(map);
+    }
 }
+
 
 let geoStyle = function(data) {
     let legisId = data.properties.NAME;
@@ -49,8 +88,6 @@ let geoStyle = function(data) {
         fillOpacity: 0.7
     };
 };
-
-window.addEventListener("DOMContentLoaded", init);
 
 $(document).ready(function() {
     let key_votes = $("#senate-template-bottom").html();
@@ -67,42 +104,9 @@ $(document).ready(function() {
     $("#priorityVotes").append(html);
 });
 
-function showInfo(sheet_data, tabletop) {
-    let scoreColor;
-    let lifetimeScoreColor;
-    $.each(tabletop.sheets("PA House").all(), function(i, member) {
-        scoreColor = getColor(parseInt(member.Score));
-        member['scoreColor'] = scoreColor;
-        console.log(member);
-        lifetimeScoreColor = getColor(parseInt(member["Lifetime Score"]));
-        member['lifetimeScoreColor'] = lifetimeScoreColor;
-        if (member.District) {
-            PADistricts[member.District] = member;
-       }
-           });
-    loadGeo();
-}
 
-function loadGeo() {
-    let tileLayer = L.tileLayer(
-        "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
-        {
-            maxZoom: 18,
-            minZoom: 7,
-            attribution:
-                'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            id: "mapbox.light"
-        }
-    );
-    tileLayer.addTo(map);
 
-    PAboundaryLayer = L.geoJson(pa_state_house_boundary_map, {
-        onEachFeature: onEachFeature,
-        style: data => geoStyle(data)
-    }).addTo(map);
-        }
+
 // function getColor(score) {
 //     return score === "NIO" ? '#fefefe' :
 //         score > 80 ? '#82BC00' : //' '#4EAB07' :
@@ -190,7 +194,6 @@ function clearInfobox() {
     let $heading = $(".entry-default-text h4");
     $heading.html("Map Help");
 }
-
 document.getElementById("buttonState").addEventListener("click", function () {
     map.flyTo([40.09, -77.6728], 7, {
         animate: true,

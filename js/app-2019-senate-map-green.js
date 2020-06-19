@@ -1,4 +1,5 @@
 let public_spreadsheet_id = "17yxvdTk33zFh92z7CE4I2FBkKyLI4F-ePu3P0g1G4Ns";
+let public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQlP4vxfqRoaJurFeNH7pm3QDBEJo-4C4z7Ws-dL0GE1GoEmRz0yiCBGTJf37FNOX6rJ4rXcyUM4MUR/pub?output=csv';
 let PAboundaryLayer;
 let PADistricts = {};
 let app = {};
@@ -24,64 +25,33 @@ let map = L.map("map", {
     minZoom: 6
 }).setView([40.09, -77.6728], 7);
 
-// var map = L.map('map', {scrollWheelZoom: true}).setView([45.3, -69],7);
-
 
 function init() {
-    Tabletop.init({
-        key: public_spreadsheet_id,
-        callback: showInfo,
-        // simpleSheet: true,
-        parseNumbers: true
-    });
+        Papa.parse(public_spreadsheet_url, {
+            download: true,
+            header: true,
+            complete: showInfo
+       })
 }
-
-let geoStyle = function(data) {
-    let legisId = data.properties.NAME;
-    let scoreColor = getColor(parseInt(PADistricts[legisId].Score));
-
-    return {
-        fillColor: scoreColor,
-        weight: 1,
-        opacity: 0.9,
-        color: "#fefefe",
-        dashArray: "0",
-        fillOpacity: 0.7
-    };
-};
 
 window.addEventListener("DOMContentLoaded", init);
 
-$(document).ready(function() {
-    let key_votes = $("#senate-template-bottom").html();
-    app.template = Handlebars.compile(key_votes);
-
-    let sourcebox = $("#senate-template-infobox").html();
-    app.infoboxTemplate = Handlebars.compile(sourcebox);
-
-    let map_help = $("#welcome-map-help").html();
-    app.welcome = Handlebars.compile(map_help);
-    $sidebar.append(app.welcome);
-
-    let html = app.template(vote_context);
-    $("#priorityVotes").append(html);
-});
-
-function showInfo(sheet_data, tabletop) {
+function showInfo(results) {
+    var data = results.data;
     let scoreColor;
     let lifetimeScoreColor;
-    $.each(tabletop.sheets("PA Senate").all(), function(i, member) {
+
+    $.each(data, function(i, member) {
         scoreColor = getColor(parseInt(member.Score));
         member['scoreColor'] = scoreColor;
-        console.log(member);
         lifetimeScoreColor = getColor(parseInt(member["Lifetime Score"]));
         member['lifetimeScoreColor'] = lifetimeScoreColor;
         if (member.District) {
             PADistricts[member.District] = member;
        }
     });
+
     loadGeo();
-}
 
 function loadGeo() {
     let tileLayer = L.tileLayer(
@@ -103,6 +73,41 @@ function loadGeo() {
         style: data => geoStyle(data)
     }).addTo(map);
 }
+}
+
+
+let geoStyle = function(data) {
+    let legisId = data.properties.NAME;
+    let scoreColor = getColor(parseInt(PADistricts[legisId].Score));
+
+    return {
+        fillColor: scoreColor,
+        weight: 1,
+        opacity: 0.9,
+        color: "#fefefe",
+        dashArray: "0",
+        fillOpacity: 0.7
+    };
+};
+
+$(document).ready(function() {
+    let key_votes = $("#senate-template-bottom").html();
+    app.template = Handlebars.compile(key_votes);
+
+    let sourcebox = $("#senate-template-infobox").html();
+    app.infoboxTemplate = Handlebars.compile(sourcebox);
+
+    let map_help = $("#welcome-map-help").html();
+    app.welcome = Handlebars.compile(map_help);
+    $sidebar.append(app.welcome);
+
+    let html = app.template(vote_context);
+    $("#priorityVotes").append(html);
+});
+
+
+
+
 // function getColor(score) {
 //     return score === "NIO" ? '#fefefe' :
 //         score > 80 ? '#82BC00' : //' '#4EAB07' :
@@ -200,19 +205,19 @@ document.getElementById("buttonState").addEventListener("click", function () {
 document.getElementById("buttonPittsburgh").addEventListener("click", function () {
     map.flyTo([40.43, -79.82], 9.25, {
         animate: true,
-        duration: 1.6 // in seconds
+        duration: 1.4 // in seconds
     });
 });
 
 document.getElementById("buttonPhiladelphia").addEventListener("click", function () {
     map.flyTo([40, -75.4], 9.25, {
         animate: true,
-        duration: 1.6 // in seconds
+        duration: 1.4 // in seconds
     });
 });
 document.getElementById("buttonAllentown").addEventListener("click", function () {
     map.flyTo([41, -75.5], 9, {
         animate: true,
-        duration: 1.6 // in seconds
+        duration: 1.4 // in seconds
     });
 });
