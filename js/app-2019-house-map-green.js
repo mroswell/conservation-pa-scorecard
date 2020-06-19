@@ -1,4 +1,5 @@
 let public_spreadsheet_id = "17yxvdTk33zFh92z7CE4I2FBkKyLI4F-ePu3P0g1G4Ns";
+let public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT-EGPUgz964sLRYik0FuS8ZPRnx1OcItugh7olxLdH4dICmR6qn2luZtT4X0UgA7-d_a18nsrm3Xq6/pub?output=csv";
 let PAboundaryLayer;
 let PADistricts = {};
 let app = {};
@@ -26,7 +27,7 @@ let map = L.map("map", {
 
 
     function init() {
-        Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vT-EGPUgz964sLRYik0FuS8ZPRnx1OcItugh7olxLdH4dICmR6qn2luZtT4X0UgA7-d_a18nsrm3Xq6/pub?output=csv', {
+        Papa.parse(public_spreadsheet_url, {
             download: true,
             header: true,
             complete: showInfo

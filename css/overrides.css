@@ -46,8 +46,8 @@ header.scorecard-header h2 {
   font-weight: bold;
   /*color: #6CB503;*/
   /*color: #0b7f0d;*/
-  /*color: #075A0A;*/
-  color: #1b890b;
+  color: #075A0A;
+  /*color: #1b890b;*/
 }
 
 
@@ -87,8 +87,9 @@ body .feature-wrapper {
 .row.navigation-buttons .nav-pills a {
   text-align:center;
   width:130px;
+  background-color: white;
+  border: 2px solid #075A0A;
 }
-
 
 /* Sidebar & Map */
 
