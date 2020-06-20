@@ -121,7 +121,8 @@ $(document).ready(function() {
 function getColor(score) {
     return score === "Medical leave" ? '#fefefe' :
         score > 99 ? '#4EAB07' :
-            score > 74 ? '#82e0c3' :
+            // score > 74 ? '#82e0c3' :
+            score > 74 ? '#BED802' :
                 score > 49 ? '#FEF200' :
                     score > 24 ? '#FDC300' :
                         score > 0 ? '#FC8400' :
