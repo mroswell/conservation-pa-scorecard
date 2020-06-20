@@ -9,19 +9,26 @@
 
 .social-icons {
   position: absolute;
-  top: 16px;
+  top: 0px;
   right:18px;
 }
+
+
 .scorecard-header .header-container {
   align-items:center;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
-  margin:0 auto;
+  margin: 4px auto;
   max-width:1200px;
   width:100%;
 }
 
+/*.header-container {margin: 1px auto;}*/
+
+.scorecard-header {
+  margin:18px 0 0 0;
+}
 .scorecard-branding {
   display:block;
   font-size:0;

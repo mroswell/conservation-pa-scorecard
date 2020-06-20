@@ -161,7 +161,7 @@ h2, h4, h5 {
 }
 
 i.fas.fa-thumbs-up.fa-2x, i.fas.fa-thumbs-down.fa-2x{
-    font-size: 1.7em;
+    font-size: 1.5em;
 }
 .fa-thumbs-up {
     color: #82BC00; //#4EAB07;a
@@ -185,12 +185,15 @@ i.fas.fa-thumbs-up.fa-2x, i.fas.fa-thumbs-down.fa-2x{
     color: #3B5998;
 }
 
+.icon-instagram, .fa-instagram-square {
+    color: #911F4F; /*#ba1e9a; */
+}
 .icon-envelope, .fa-at {
     color: #c0c0c0;
 }
 
 .icon-2x {
-    font-size: 1.6em;
+    font-size: 1.5em;
 }
 
 p.close {
