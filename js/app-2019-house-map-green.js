@@ -1,4 +1,4 @@
-let public_spreadsheet_id = "17yxvdTk33zFh92z7CE4I2FBkKyLI4F-ePu3P0g1G4Ns";
+let bill_descriptions_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT-EGPUgz964sLRYik0FuS8ZPRnx1OcItugh7olxLdH4dICmR6qn2luZtT4X0UgA7-d_a18nsrm3Xq6/pub?output=csv&gid=2083784181';
 let public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT-EGPUgz964sLRYik0FuS8ZPRnx1OcItugh7olxLdH4dICmR6qn2luZtT4X0UgA7-d_a18nsrm3Xq6/pub?output=csv";
 let PAboundaryLayer;
 let PADistricts = {};
@@ -7,17 +7,7 @@ let freeze = 0;
 let $sidebar = $("#sidebar");
 let clickedMemberNumber;
 
-let vote_context =  {
-    "priority_votes": [
-            {
-            "billnumber": "Bill #",
-            "billname": "Bill name",
-            "billdescription": "Description goes here",
-            "outcome": "Outcome",
-            "stance": "Stance"
-            },
-        ]
-};
+let vote_context =  {"priority_votes": []};
 
 let map = L.map("map", {
     scrollWheelZoom: false,
@@ -31,13 +21,37 @@ let map = L.map("map", {
             download: true,
             header: true,
             complete: showInfo
-       })
-    }
+    });
 
+    Papa.parse(bill_descriptions_url, {
+        download: true,
+        header: true,
+        complete: function(results) {
+            var bills = results.data;
+            console.log(bills);
+            console.log(vote_context.priority_votes);
+
+            $.each(bills, function(i, bill) {
+                if (bill['include']==='yes') {
+                    console.log("YES!");
+                    vote_context.priority_votes.push(bill)
+    }
+            });
+            console.log("vote_context", vote_context);
+            let key_votes = $("#senate-template-bottom").html();
+            app.template = Handlebars.compile(key_votes);
+            // let html = app.template(vote_context);
+            let html = app.template(vote_context);
+            $("#priorityVotes").append(html);
+
+        }
+    });
+
+}
 window.addEventListener("DOMContentLoaded", init);
 
 function showInfo(results) {
-    var data = results.data;
+    let data = results.data;
     let scoreColor;
     let lifetimeScoreColor;
 
@@ -91,8 +105,8 @@ let geoStyle = function(data) {
 };
 
 $(document).ready(function() {
-    let key_votes = $("#senate-template-bottom").html();
-    app.template = Handlebars.compile(key_votes);
+
+    console.log("vote_context-outside", vote_context);
 
     let sourcebox = $("#senate-template-infobox").html();
     app.infoboxTemplate = Handlebars.compile(sourcebox);
@@ -100,35 +114,22 @@ $(document).ready(function() {
     let map_help = $("#welcome-map-help").html();
     app.welcome = Handlebars.compile(map_help);
     $sidebar.append(app.welcome);
-
-    let html = app.template(vote_context);
-    $("#priorityVotes").append(html);
 });
-
-
-
-
-// function getColor(score) {
-//     return score === "NIO" ? '#fefefe' :
-//         score > 80 ? '#82BC00' : //' '#4EAB07' :
-//             score > 60 ? '#82e0c3' :
-//                 score > 40 ? '#FEF200' :
-//                     score > 20 ? '#FCA300' :
-//                             'rgb(255,0,0)';
-// }
 
 // get color depending on score value
 function getColor(score) {
     return score === "Medical leave" ? '#fefefe' :
         score > 99 ? '#4EAB07' :
+        // score > 99 ? '#4EAB07' :
             // score > 74 ? '#82e0c3' :
             score > 74 ? '#BED802' :
+            // score > 74 ? '#BED802' :
                 score > 49 ? '#FEF200' :
                     score > 24 ? '#FDC300' :
                         score > 0 ? '#FC8400' :
                             '#F00604';
                         // '#EE0705';
-                        //   'rgb(255,0,0)';
+                            //'#DE0F0A';
 }
 
 function highlightFeature(e) {

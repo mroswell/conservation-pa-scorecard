@@ -72,8 +72,10 @@
                         <li><span style="background:#FC8400; border: 2px solid transparent;"></span>1-24%</li>
                         <li><span style="background:#FDC300; border: 2px solid transparent;"></span>25-49%</li>
                         <li><span style="background:#FEF200; border: 2px solid transparent;"></span>50-74%</li>
-                        <li><span style="background:#BED802; border: 2px solid transparent;"></span>75-99%</li>
-                        <li><span style="background:#4EAB07; border: 2px solid transparent;"></span>100%</li>
+<!--                        <li><span style="background:#BED802; border: 2px solid transparent;"></span>75-99%</li>-->
+                        <li><span style="background:#A8CA03; border: 2px solid transparent;"></span>75-99%</li>
+<!--                        <li><span style="background:#4EAB07; border: 2px solid transparent;"></span>100%</li>-->
+                        <li><span style="background:#409B06; border: 2px solid transparent;"></span>100%</li>
                     </ul>
                 </div>
 
@@ -119,8 +121,8 @@
     {{#each priority_votes}}
     <div class="entry priority_vote" id="bookmark_{{@index}}">
         <div class="body">
-            <h5><a href="#top">{{{billnumber}}}: {{{billname}}}</a></h5>
-            <p>{{{billdescription}}}</p>
+            <h5><a href="#top">{{{bill_number}}}: {{{bill_subtitle}}}</a></h5>
+            <p>{{{bill_description}}}</p>
             <p><em>Stance: {{{stance}}}</em></p>
             <p><em>Outcome: {{{outcome}}}</em></p>
         </div>
@@ -149,9 +151,9 @@
                     </div>
                 </div>
             </div>
-            <!--            <p>{{#if_eq bill1 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
-            <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
-            <!--                {{/if_eq}} <a href="#bookmark_0">1. Upholding Paris Climate Accord</a></p>-->
+            <p>{{#if_eq [SB 398] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+                {{/if_eq}} <a href="#bookmark_0">1. Ipsum lorem.</a></p>
             <!--            <p>{{#if_eq bill2 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
             <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
             <!--                {{/if_eq}} <a href="#bookmark_1">2. Electric School Buses</a></p>-->
@@ -224,11 +226,11 @@
             return opts.fn(this);
         } else if (a==="A") {
             return '<span class="circle">&nbsp;&nbsp;Abstained&nbsp;&nbsp;</span>'
-        } else if (a==="NV") {
-            return '<span class="circle"><span class="circle">&nbsp;&nbsp;Not Voting&nbsp;&nbsp;</span></span>'
-        } else if (a==="EX") {
-            return '<span class="circle">&nbsp;&nbsp;Excused&nbsp;&nbsp;</span>'
-        } else if (a==="NIO") {
+        } else if (a==="X") {
+            return '<span class="circle"><span class="circle">&nbsp;&nbsp;Unexcused Absence&nbsp;&nbsp;</span></span>'
+        } else if (a==="E") {
+            return '<span class="circle">&nbsp;&nbsp;Excused Absence&nbsp;&nbsp;</span>'
+        } else if (a==="-") {
             return '<span class="circle wide105">&nbsp;&nbsp;Not in Office&nbsp;&nbsp;</span>'
         } else {
             return opts.inverse(this);
