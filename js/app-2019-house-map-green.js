@@ -1,4 +1,4 @@
-let bill_descriptions_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT-EGPUgz964sLRYik0FuS8ZPRnx1OcItugh7olxLdH4dICmR6qn2luZtT4X0UgA7-d_a18nsrm3Xq6/pub?output=csv&gid=2083784181';
+let bill_descriptions_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT-EGPUgz964sLRYik0FuS8ZPRnx1OcItugh7olxLdH4dICmR6qn2luZtT4X0UgA7-d_a18nsrm3Xq6/pub?output=csv&gid=279214425';
 let public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT-EGPUgz964sLRYik0FuS8ZPRnx1OcItugh7olxLdH4dICmR6qn2luZtT4X0UgA7-d_a18nsrm3Xq6/pub?output=csv";
 let PAboundaryLayer;
 let PADistricts = {};
@@ -32,7 +32,7 @@ let map = L.map("map", {
             console.log(vote_context.priority_votes);
 
             $.each(bills, function(i, bill) {
-                if (bill['include']==='yes') {
+                if (bill['include']==='Yes') {
                     console.log("YES!");
                     vote_context.priority_votes.push(bill)
     }
@@ -41,7 +41,9 @@ let map = L.map("map", {
             let key_votes = $("#senate-template-bottom").html();
             app.template = Handlebars.compile(key_votes);
             // let html = app.template(vote_context);
+            // console.log(app.template);
             let html = app.template(vote_context);
+            // console.log(html);
             $("#priorityVotes").append(html);
 
         }
@@ -119,10 +121,12 @@ $(document).ready(function() {
 // get color depending on score value
 function getColor(score) {
     return score === "Medical leave" ? '#fefefe' :
-        score > 99 ? '#4EAB07' :
+        score > 99 ? '#409B06' :
+        // score > 99 ? '#4EAB07' :
         // score > 99 ? '#4EAB07' :
             // score > 74 ? '#82e0c3' :
-            score > 74 ? '#BED802' :
+            score > 74 ? '#A8CA02' :
+            // score > 74 ? '#BED802' :
             // score > 74 ? '#BED802' :
                 score > 49 ? '#FEF200' :
                     score > 24 ? '#FDC300' :
@@ -205,14 +209,14 @@ document.getElementById("buttonState").addEventListener("click", function () {
 });
 
 document.getElementById("buttonPittsburgh").addEventListener("click", function () {
-    map.flyTo([40.43, -79.82], 9.25, {
+    map.flyTo([40.43, -79.98], 10, {
         animate: true,
         duration: 1.4 // in seconds
     });
 });
 
 document.getElementById("buttonPhiladelphia").addEventListener("click", function () {
-    map.flyTo([40, -75.4], 9.25, {
+    map.flyTo([40, -75.2], 10, {
         animate: true,
         duration: 1.4 // in seconds
     });

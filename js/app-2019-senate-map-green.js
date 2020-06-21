@@ -33,7 +33,7 @@ function init() {
             console.log(vote_context.priority_votes);
 
             $.each(bills, function(i, bill) {
-                if (bill['include']==='yes') {
+                if (bill['include']==='Yes') {
                     console.log("YES!");
                     vote_context.priority_votes.push(bill)
                 }
@@ -47,7 +47,6 @@ function init() {
 
         }
     });
-
 }
 window.addEventListener("DOMContentLoaded", init);
 
@@ -120,10 +119,12 @@ $(document).ready(function() {
 // get color depending on score value
 function getColor(score) {
     return score === "Medical leave" ? '#fefefe' :
-        score > 99 ? '#4EAB07' :
+        score > 99 ? '#409B06' :
+        // score > 99 ? '#4EAB07' :
         // score > 99 ? '#4EAB07' :
             // score > 74 ? '#82e0c3' :
-            score > 74 ? '#BED802' :
+            score > 74 ? '#A8CA02' :
+            // score > 74 ? '#BED802' :
             // score > 74 ? '#BED802' :
                 score > 49 ? '#FEF200' :
                     score > 24 ? '#FDC300' :
@@ -206,14 +207,14 @@ document.getElementById("buttonState").addEventListener("click", function () {
 });
 
 document.getElementById("buttonPittsburgh").addEventListener("click", function () {
-    map.flyTo([40.43, -79.82], 9.25, {
+    map.flyTo([40.43, -79.98], 10, {
         animate: true,
         duration: 1.4 // in seconds
     });
 });
 
 document.getElementById("buttonPhiladelphia").addEventListener("click", function () {
-    map.flyTo([40, -75.4], 9.25, {
+    map.flyTo([40, -75.2], 10, {
         animate: true,
         duration: 1.4 // in seconds
     });

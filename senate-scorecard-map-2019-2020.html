@@ -14,8 +14,8 @@
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Nunito+Sans|Roboto+Condenseda|Roboto:400,700,900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico"/>
     <link rel="stylesheet" href="css/senate-style-2019.css">
-    <link rel="stylesheet" href="css/style.css?13">
-    <link rel="stylesheet" href="css/overrides.css?4">
+    <link rel="stylesheet" href="css/style.css?15">
+    <link rel="stylesheet" href="css/overrides.css?5">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" crossorigin=""/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -24,9 +24,6 @@
     <script src="https://kit.fontawesome.com/349ec13eb2.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.7/handlebars.js" integrity="sha256-3kxM38zABJY692X6ViIlt9FsBimhck0ZlsLtuA7R+0Y=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
-
-
 </head>
 <body>
 <header class="scorecard-header">
@@ -119,12 +116,13 @@
 </script>
 <script id="senate-template-bottom" type="text/x-handlebars-template">
     {{#each priority_votes}}
-    <div class="entry priority_vote" id="bookmark_{{@index}}">
+    <div class="entry priority_vote" id="bookmark_{{bill_bookmark bill_number}}">
         <div class="body">
             <h5><a href="#top">{{{bill_number}}}: {{{bill_subtitle}}}</a></h5>
             <p>{{{bill_description}}}</p>
-            <p><em>Stance: {{{stance}}}</em></p>
             <p><em>Outcome: {{{outcome}}}</em></p>
+            <p><em>The Pro-Environment vote is &ldquo;{{{stance}}}.&rdquo;</em></p>
+
         </div>
     </div>
     {{/each}}
@@ -136,7 +134,7 @@
             <button type='button' id='close' class='close'>&times;</button>
             <br>
             <p class="child-header" >
-                <img src="{{{photo}}}" class="img-fluid justify-content-center" alt="Photo">
+                <img src="{{{photo}}}" class="img-fluid justify-content-center" alt="Photo" />
                 <br>{{{full_name}}} ({{{abbrev Party}}})
                 <br>District {{{District}}}
             </p>
@@ -151,68 +149,28 @@
                     </div>
                 </div>
             </div>
+
+            <p>{{#if_eq [HB 1100] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
+            {{/if_eq}}<a href="#bookmark_1100">HB 1100</a></p>
+
             <p>{{#if_eq [SB 398] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}} <a href="#bookmark_0">1. Ipsum lorem.</a></p>
-            <!--            <p>{{#if_eq bill2 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
-            <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
-            <!--                {{/if_eq}} <a href="#bookmark_1">2. Electric School Buses</a></p>-->
-            <!--            <p>{{#if_eq bill3 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
-            <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
-            <!--                {{/if_eq}} <a href="#bookmark_2">3. Participation in the Regional Greenhouse Gas Initiative</a></p>-->
-            <!--            <p>{{#if_eq bill4 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
-            <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
-            <!--                {{/if_eq}} <a href="#bookmark_3">4. Prohibits Offshore Oil and Gas Development in State Waters (STOP Act)</a></p>-->
-            <!--            <p>{{#if_eq bill5 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
-            <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
-            <!--                {{/if_eq}} <a href="#bookmark_4">5. Electric Vehicle Charging Infrastructure</a></p>-->
-            <!--            <p>{{#if_eq bill6 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
-            <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
-            <!--                {{/if_eq}} <a href="#bookmark_5">6. One-Hour Water Boil Notices</a></p>-->
-            <!--            <p>{{#if_eq bill7 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
-            <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
-            <!--                {{/if_eq}} <a href="#bookmark_6">7. Establishes Clean Vehicle Task Force</a></p>-->
-            <!--            <p>{{#if_eq bill8 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
-            <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
-            <!--                {{/if_eq}} <a href="#bookmark_7">8. Clean Renewable Energy Bill</a></p>-->
-            <!--            <p>{{#if_eq bill9 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
-            <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
-            <!--                {{/if_eq}} <a href="#bookmark_8">9. Automatic Voter Registration</a></p>-->
-            <!--            <p>{{#if_eq bill10 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
-            <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
-            <!--                {{/if_eq}} <a href="#bookmark_9">10. Prohibits Smoking at Public Beaches</a></p>-->
-            <!--            <p>{{#if_eq bill11 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
-            <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
-            <!--                {{/if_eq}} <a href="#bookmark_10">11. Stormwater Utilities</a></p>-->
-            <!--            <p>{{#if_eq bill12 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
-            <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
-            <!--                {{/if_eq}} <a href="#bookmark_11">12. Public Right of Access to Waterways and Beaches</a></p>-->
-            <!--            <p>{{#if_eq bill13 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
-            <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
-            <!--                {{/if_eq}} <a href="#bookmark_12">13. Condemns EPA decision to withdraw from "Once-In-Always-In” (Clean Air Act)</a></p>-->
-            <!--            <p>{{#if_eq bill14 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
-            <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
-            <!--                {{/if_eq}} <a href="#bookmark_13">14. Concerns Fracking Wastewater</a></p>-->
-            <!--            <p>{{#if_eq bill15 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
-            <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
-            <!--                {{/if_eq}} <a href="#bookmark_14">15. Concerns Regulations for Interstate Natural Gas Pipelines</a></p>-->
-            <!--            <p>{{#if_eq bill16 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
-            <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
-            <!--                {{/if_eq}} <a href="#bookmark_15">16. Concerns Fracking Wastewater and the Delaware River Basin</a></p>-->
-            <!--            <p>{{#if_eq bill17 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
-            <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
-            <!--                {{/if_eq}} <a href="#bookmark_16">17. Authorizes Prescribed Burning</a></p>-->
-            <!--            <p>{{#if_eq bill18 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
-            <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
-            <!--                {{/if_eq}} <a href="#bookmark_17">18. Updates Global Warming Response Act</a></p>-->
-            <!--            <p>{{#if_eq bill19 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
-            <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
-            <!--                {{/if_eq}} <a href="#bookmark_18">19. Partial Disclosure Bill</a></p>-->
-            <!--            <p>{{#if_eq bill20 "Y"}}<i class="fas fa-thumbs-up fa-2x"></i>-->
-            <!--                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>-->
-            <!--                {{/if_eq}} <a href="#bookmark_19">20. Permanent Open Space Funding</a></p>-->
-            <!--      <br>-->
-            <!--        </div>-->
+            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+            <a href="#bookmark_398">SB 398</a></p>
+
+            <p>{{#if_eq [SB 619] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+                <a href="#bookmark_619">SB 619</a></p>
+
+            <p>{{#if_eq [SB 790] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+                <a href="#bookmark_790">SB 790</a></p>
+
+            <p>{{#if_eq [SB 919] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+                <a href="#bookmark_919">SB 919</a></p>
+            <br>
+        </div>
         </div>
 </script>
 <script>
@@ -236,9 +194,16 @@
             return opts.inverse(this);
         }
     });
+
     Handlebars.registerHelper('abbrev', function (aString) {
         return aString.charAt(0);
-    })
+    });
+
+    Handlebars.registerHelper('bill_bookmark', function(bill) {
+        var t = bill.split(" ");
+        return t[t.length - 1];
+    });
 </script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
 </body>
 </html>
