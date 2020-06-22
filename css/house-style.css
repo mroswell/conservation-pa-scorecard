@@ -15,7 +15,7 @@ body {
     margin: 8px;
     background: white;
     line-height: 1.4;
-    /*font: 13.5pt 'Roboto Condensed';*/
+    font: 13.5pt 'Roboto Condensed';
     position: relative;
     z-index: 5;
 }
@@ -127,11 +127,7 @@ a:link, a:visited, a:hover, a:active {
 @media screen and (orientation: portrait) {
     img.ri {
         max-width: 90%;
-    }
-}
-
-@media screen and (orientation: landscape) {
-    img.ri {
+    }L{
         max-height: 90%;
     }
 }
@@ -203,9 +199,11 @@ i.fas.fa-thumbs-up.fa-2x, i.fas.fa-thumbs-down.fa-2x{
 }
 
 p.close {
-    margin-top: -4px;
-    margin-right: -8px;
+    /*margin-top: -4px;*/
+    /*margin-right: -8px;*/
 }
+
+button#close.close {padding: 5px 9px 0;}
 
 #map-help, #endorsement-process {
     background-color: #fff4c1;
@@ -301,7 +299,7 @@ p.close {
 }
 .child-header, .score  {
     font: 600 12pt 'Roboto', sans-serif;
-    background-color: #f5f5f5; // #efefef; /*#e7e7e7;!* #0c0b3e;*/
+    /*background-color: #f5f5f5; // #efefef; !*#e7e7e7;!* #0c0b3e;*!*/
     color: black;
     margin-top: 7px;
     display: block;
@@ -341,9 +339,10 @@ span > i {
 .wide105 {width:150px;}
 
 img.img-fluid {
-    height: 162px;
+    height: 150px;
     margin-bottom: 6px;
-    /*border-radius:6px;*/
+    border-radius:6px;
+
 }
 
 div#scorecard-legend {

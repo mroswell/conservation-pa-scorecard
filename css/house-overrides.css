@@ -1,0 +1,264 @@
+/* Header Stuff */
+
+.fa-facebook, .fa-facebook-square {
+  color: #3b5998
+}
+.fa-twitter, .fa-twitter-square {
+  color: #00aced
+}
+
+.social-icons {
+  position: absolute;
+  top: 0px;
+  right:18px;
+}
+
+.scorecard-header .header-container {
+  align-items:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  margin: 4px auto;
+  max-width:1200px;
+  width:100%;
+}
+
+/*.header-container {margin: 1px auto;}*/
+
+.scorecard-header {
+  margin:18px 0 0 0;
+}
+.scorecard-branding {
+  display:block;
+  font-size:0;
+  height:80px;
+  padding:15px 0 0 20px;
+  /*width:320px;*/
+  /*width:100%;*/
+
+}
+
+.scorecard-branding img {
+  /*height:140px;*/
+  width:400px;
+}
+
+header.scorecard-header h2 {
+  font-size:37px;
+  margin:0;
+  padding:0 20px 24px;
+  text-align:center;
+  font-family: 'Verdana', sans-serif;
+  font-weight: bold;
+  /*color: #6CB503;*/
+  /*color: #0b7f0d;*/
+  color: #075A0A;
+  /*color: #1b890b;*/
+}
+
+
+/* Main Section */
+
+body .feature-wrapper {
+  margin-top:0 !important;
+  padding:0 20px 0 !important;
+}
+
+.feature-wrapper #top {
+  max-width:1160px;
+  padding:0;
+  width:100%;
+}
+
+
+/* Navigation Buttons */
+
+.row.navigation-buttons {
+  margin:0 0 20px !important;
+  width:100%;
+}
+
+.row.navigation-buttons .default-text {
+  flex:0 auto;
+  max-width:100%;
+  padding:0;
+  width:260px;
+}
+
+.row.navigation-buttons ul.nav-pills {
+  flex-direction:row !important;
+  padding:0;
+}
+
+.row.navigation-buttons .nav-pills a {
+  text-align:center;
+  width:130px;
+  background-color: white;
+  border: 2px solid #075A0A;
+}
+
+/* Sidebar & Map */
+
+#sidebar-and-map {
+  display:block;
+  margin:0 0 20px;
+}
+
+#sidebar-and-map #sidebar {
+  margin:0 auto 20px;
+  max-width:100%;
+  padding:0;
+  width:100%;
+}
+
+#sidebar .entry-default-text,
+#sidebar .entry.parent {width:100%;}
+
+#sidebar .entry-default-text ul li:last-of-type {padding-bottom:0;}
+#sidebar .entry-default-text #default-text > :last-child {margin-bottom:0;}
+
+#sidebar .entry.parent {
+  float:unset;
+  height:100% !important;
+  margin:0 0 20px;
+}
+
+#sidebar .entry.parent .child {
+  height:auto;
+  padding:8px 20px 20px 20px;
+  width:auto;
+  border-radius: 6px;
+}
+
+#sidebar-and-map #map {
+  height:650px;
+  max-width:100%;
+  padding:20px;
+  width:100%;
+}
+
+#map-legend {
+  margin:0 auto 4px;
+  width:100%;
+}
+
+#map-legend .map-legend {
+  color:#000;
+  font-family:Arial, sans-serif;
+  font-size:12px;
+  font-weight:700;
+  line-height:20px;
+  margin:unset;
+  text-align:center;
+}
+
+.map-legend .legend-item {
+  padding:0 0 0 30px;
+  position:relative;
+}
+
+.map-legend .legend-item:before {
+  background:#f00;
+  border-radius:7px;
+  content:"";
+  display:block;
+  height:14px;
+  left:12px;
+  position:absolute;
+  top:0;
+  width:14px;
+}
+
+.map-legend .quintile-2:before {background:#fca300;}
+.map-legend .quintile-3:before {background:#fef200;}
+.map-legend .quintile-4:before {background:#82e0c3;}
+.map-legend .quintile-5:before {background:#4eab07;}
+
+
+/* Lower Content */
+
+#lower-content {margin:0 auto;}
+#lower-content .about_us {margin:0;}
+#lower-content .about_us h4 {margin:0 0 20px;}
+
+#lower-content #priorityVotes {
+  display:flex;
+  flex-wrap:wrap;
+  margin:0 0 20px;
+  padding:12px;
+}
+
+#priorityVotes .entry {
+  height:auto;
+  margin:12px;
+  width:100%;
+}
+
+#priorityVotes .entry .body > :last-child {margin-bottom:0;}
+
+
+@media (min-width:600px) {
+
+  header.scorecard-header h2 {
+    font-size: 20px;
+    padding: 26px 0 20px 22px;
+  }
+  /* Lower Content */
+
+  #priorityVotes .entry {width:calc(50% - 24px);}
+
+}
+
+
+@media (min-width:768px) {
+
+  .scorecard-header .header-container {
+    align-items:flex-end;
+    flex-direction:row;
+    justify-content:left;
+    position: relative;
+    flex-wrap: wrap;
+    /*flex-flow: column wrap;*/
+
+  }
+
+  header.scorecard-header h2 {text-align:left;}
+
+
+  /* Sidebar & Map */
+
+  #sidebar-and-map {
+    display:flex;
+    justify-content:space-between;
+  }
+
+  #sidebar-and-map #sidebar {
+    flex:0 auto;
+    margin:unset;
+    width:calc(100% - 450px);
+  }
+
+  #sidebar-and-map #map-and-legend {
+    flex:0 auto;
+    width:430px;
+  }
+
+}
+
+
+@media (min-width:900px) {
+
+  /* Sidebar & Map */
+
+  #sidebar-and-map #sidebar {width:calc(100% - 587px);}
+  #sidebar-and-map #map-and-legend {width:557px;}
+
+
+  /* Lower Content */
+
+  #priorityVotes .entry {width:calc(100%/3 - 24px);}
+
+
+}
+
+

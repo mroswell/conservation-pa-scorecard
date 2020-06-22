@@ -11,11 +11,11 @@
     <meta property="og:image" content="http://scorecard.conservationpa.org/images/ConservationPA_Social_Post.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Nunito+Sans|Roboto+Condenseda|Roboto:400,700,900&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Nunito+Sans|Roboto+Condensed|Roboto:400,700,900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="http://conservationpa.org/themes/lcv/favicon.ico" type="image/vnd.microsoft.icon">
     <link rel="stylesheet" href="css/senate-style-2019.css">
-    <link rel="stylesheet" href="css/style.css?16">
-    <link rel="stylesheet" href="css/overrides.css?5">
+    <link rel="stylesheet" href="css/house-style.css?3">
+    <link rel="stylesheet" href="css/house-overrides.css?1">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" crossorigin=""/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -135,15 +135,16 @@
 
 <script id="senate-template-infobox" type="text/x-handlebars-template">
     <div class="entry parent" style="background-color: {{ scoreColor }}; z-index:100; height:1200px" >
+        <button type='button' id='close' class='close'>&times;</button>
         <div class="infobox child">
-            <button type='button' id='close' class='close'>&times;</button>
-            <br>
-            <p class="child-header" >
-                <img src="{{{photo}}}" class="img-fluid justify-content-center" alt="Photo">
-                <br>{{{full_name}}} ({{{ abbrev Party}}})
-                <br>District {{{District}}}
-            </p>
-
+            <div class="child-header" style="width: 90%; display:flex; justify-content:space-evenly; align-items:center; text-align:right" >
+                <div style="width:50%;"><img src="{{{photo}}}" class="img-fluid justify-content-center" alt="Photo"></div>
+                <div style="width:50%; text-align:left; margin-left:14px;">{{{full_name}}} ({{{ abbrev Party}}})
+                    <br />District {{{District}}}
+                    <br /> <span style="font:normal 12pt 'Roboto Condensed'">{{#if capitol_voice}}Capitol: {{capitol_voice}}{{/if}}
+                <br />{{#if district_voice }}District: {{district_voice}}{{/if}}</span></div>
+                <br />
+            </div>
             <div class="container">
                 <div class="row justify-content-center mb-3 mt-1">
                     <div class="col-5"  style="text-align:center">
@@ -185,7 +186,7 @@
             {{/if_eq}}<a href="#bookmark_Conc">HB 1100 Concurrent Vote</a></p>
 
             <br>
-        </div>
+        </p>
     </div>
 </script>
 <script>
