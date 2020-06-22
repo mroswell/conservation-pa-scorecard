@@ -308,7 +308,7 @@ button#close.close {padding: 5px 9px 0;}
     padding: 8px 4px;
 }
 .score {
-    font: 600 14pt 'Roboto Condensed', sans-serif;
+    font: 600 14pt 'Roboto', sans-serif;
     display: inline-block;
     width:41px;
 }

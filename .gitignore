@@ -1,2 +1,4 @@
 .DS_Store
 .idea/
+generate-template.html
+js/generate-template.js
