@@ -189,18 +189,36 @@ map.attributionControl.addAttribution(
     'District Boundaries &copy; <a href="http://census.gov/">US Census Bureau</a>'
 );
 
-$(document).on("click", ".close", function(event) {
-    event.preventDefault();
-    clearInfobox();
-    freeze = 0;
-});
-
 function clearInfobox() {
     $sidebar.html(" ");
     $sidebar.append(app.welcome);
     let $heading = $(".entry-default-text h4");
     $heading.html("Map Help");
 }
+
+$(document).on("click", ".close", function(event) {
+    event.preventDefault();
+    clearInfobox();
+    freeze = 0;
+});
+
+// Enable Escape key to close popup
+$(document).on('keydown',function(evt) {
+    evt = evt || window.evt;
+    var isEscape = false;
+    if ("key" in evt) {
+        isEscape = (evt.key === "Escape" || evt.key === "Esc");
+    } else {
+        isEscape = (evt.keyCode === 27);
+    }
+    if (isEscape) {
+        console.log ('escape room');
+        evt.preventDefault();
+        clearInfobox();
+        freeze = 0;
+    }
+});
+
 document.getElementById("buttonState").addEventListener("click", function () {
     map.flyTo([40.09, -77.6728], 7, {
         animate: true,
