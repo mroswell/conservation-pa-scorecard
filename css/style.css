@@ -340,7 +340,7 @@ span > i {
 
 .wide105 {width:150px;}
 
-img.img-fluid {
+.infobox img.img-fluid {
     height: 162px;
     margin-bottom: 6px;
     /*border-radius:6px;*/
@@ -371,29 +371,15 @@ div#scorecard-legend ul li span {
 
 button.btn {font-size: small;}
 
-
 button.btn.btn-outline-primary {
     color: #085A0A;
     border: solid #085A0A 1px;
-    border-color: #085A0A;
-    border-top-color: #085A0A;
-    border-right-color: #085A0A;
-    border-bottom-color: #085A0A;
-    border-left-color: #085A0A;
-    border-top-color: #085A0A;
-    border-right-color: #085A0A;
-    border-bottom-color: #085A0A;
-    border-left-color: #085A0A;
-    }
+}
 button.btn.btn-outline-primary:hover {
     color: #fff;
     background-color:  #085A0A;
     /*#007bff;*/
     border-color:  #085A0A;
-    border-top-color:  #085A0A;
-    border-right-color:  #085A0A;
-    border-bottom-color:  #085A0A;
-    border-left-color:  #085A0A;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show>.btn-outline-primary.dropdown-toggle {
@@ -408,9 +394,39 @@ button.btn.btn-outline-primary:hover {
     color: #085A0A;
     border: none;
 }
-}
+
 .btn.focus, .btn:focus {
     outline: 0  !important;
     box-shadow: 0 0 0 0.2rem  #085A0A;  !important;
 }
 
+span.score {
+    padding: 10px 5px 10px 5px;
+    font: 600 11pt 'Roboto', sans-serif;
+}
+
+#logos {
+    /*width: 85%;*/
+    display:flex;
+    /*height: 150px;*/
+    justify-content:space-evenly;
+    align-items:center;
+    /*text-align:center;*/
+}
+
+.logo-item {
+    margin: 15px;
+}
+.logo-item-sc {
+    width: 20%;
+}
+/*.logo-item-pe {*/
+/*    width:20%;*/
+/*}*/
+/*.logo-item-cwa {*/
+/*    width:20%;*/
+/*}*/
+
+/*.logo-item-cvpa {*/
+/*    width:40%;*/
+/*}*/

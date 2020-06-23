@@ -12,7 +12,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Nunito+Sans|Roboto+Condensed|Roboto:400,700,900&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico"/>
+    <link rel="shortcut icon" href="http://conservationpa.org/themes/lcv/favicon.ico" type="image/vnd.microsoft.icon">
     <link rel="stylesheet" href="css/senate-style-2019.css">
     <link rel="stylesheet" href="css/style.css?15">
     <link rel="stylesheet" href="css/overrides.css?5">
@@ -88,6 +88,12 @@
                 <p>You will find objective, nonpartisan information about how each member of the legislature voted on conservation issues. Scores are based on rigorous analysis, review, and consultation with environmental policy experts from across the state, and track the most important votes made in the 2019-2020 legislative session. We invite you to examine the scores of your representative and your senator to see how well their votes match up with your conservation values.</p>
                 <p>Look up your lawmakers to see how they scored, and then ask them to do better in the next legislative session – or thank them if they’re one of our champs!</p>
             </div>
+            <div id="logos">
+                <div class="logo-item logo-item-sc"><a target="_blank" href="https://www.sierraclub.org/pennsylvania"><img class="img-fluid" src="images/sc_green.png" alt="Sierra Club logo"></a></div>
+                <div class="logo-item logo-item-pe"><a target="_blank" href="https://pennenvironment.org/"><img class="img-fluid" src="images/pe_logo.jpg" alt="PennEnvironment logo"></a></div>
+                <div class="logo-item logo-item-cwa"><a target="_blank" href="https://www.cleanwateraction.org/"><img class="img-fluid" src="images/clean_water_action_logo.jpg" alt="Clean Water Action logo"></a></div>
+                <div class="logo-item logo-item-cvpa"><a target="_blank" href="https://www.conservationpa.org/"><img class="img-fluid" src="images/cvpa_logo_horizontal.png" alt="Conservation Voters of Pennsylvania logo"></a></div>
+            </div>
         </div>
     </div>
 
@@ -122,7 +128,6 @@
             <p>{{{bill_description}}}</p>
             <p><em>Outcome: {{{outcome}}}</em></p>
             <p><em>The Pro-Environment vote is &ldquo;{{{stance}}}.&rdquo;</em></p>
-
         </div>
     </div>
     {{/each}}
@@ -141,8 +146,8 @@
 
             <div class="container">
                 <div class="row justify-content-center mb-3 mt-1">
-                    <div class="col-5"  style="text-align:center">
-                        2019-2020 Score<br> <span class="score" style="background-color: {{ scoreColor }}">{{{Score}}}</span>
+                    <div class="col-4"  style="text-align:center">
+                        <span class="nobr">2019&ndash;2020&nbsp;Score</span><br> <span class="score" style="background-color: {{ scoreColor }}; {{#if_eq scoreColor '#F00604'}}less{{/if_eq}}">{{{Score}}}</span>
                     </div>
                     <div class="col-5" style="text-align:center">
                         Lifetime Score<br><span class="score" style="background-color: {{ lifetimeScoreColor }}">{{{[Lifetime Score]}}}</span>
@@ -185,9 +190,9 @@
         } else if (a==="A") {
             return '<span class="circle">&nbsp;&nbsp;Abstained&nbsp;&nbsp;</span>'
         } else if (a==="X") {
-            return '<span class="circle"><span class="circle">&nbsp;&nbsp;Unexcused Absence&nbsp;&nbsp;</span></span>'
+            return '<i class="fas fa-thumbs-down fa-2x"></i> <span class="circle">&nbsp;&nbsp;Unexcused Absence&nbsp;&nbsp;</span>'
         } else if (a==="E") {
-            return '<span class="circle">&nbsp;&nbsp;Excused Absence&nbsp;&nbsp;</span>'
+            return '<span class="circle">&nbsp;&nbsp;Excused Absence&nbsp;&nbsp;</span>&nbsp;'
         } else if (a==="-") {
             return '<span class="circle wide105">&nbsp;&nbsp;Not in Office&nbsp;&nbsp;</span>'
         } else {

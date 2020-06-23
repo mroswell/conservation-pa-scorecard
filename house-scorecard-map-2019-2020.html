@@ -90,10 +90,12 @@
                 <p>You will find objective, nonpartisan information about how each member of the legislature voted on conservation issues. Scores are based on rigorous analysis, review, and consultation with environmental policy experts from across the state, and track the most important votes made in the 2019-2020 legislative session. We invite you to examine the scores of your representative and your senator to see how well their votes match up with your conservation values.</p>
                 <p>Look up your lawmakers to see how they scored, and then ask them to do better in the next legislative session – or thank them if they’re one of our champs!</p>
             </div>
-<!--            <div id=logos>-->
-<!--                <img class="img-fluid" src="images/scorecard-logo.jpg"-->
-<!--                     alt="">-->
-<!--            </div>-->
+            <div id="logos">
+                <div class="logo-item logo-item-sc"><img class="img-fluid" src="images/sc_green.png" alt="Sierra Club logo"></div>
+                <div class="logo-item logo-item-pe"><img class="img-fluid" src="images/pe_logo.jpg" alt="PennEnvironment logo"></div>
+                <div class="logo-item logo-item-cwa"><img class="img-fluid" src="images/clean_water_action_logo.jpg" alt="Clean Water Action logo"></div>
+                <div class="logo-item logo-item-cvpa" style="margin-left: 5px;"><img class="img-fluid" src="images/cvpa_logo_horizontal.png" alt="Conservation Voters of Pennsylvania logo"></div>
+            </div>
         </div>
     </div>
 
@@ -144,16 +146,21 @@
                     <br /> <span style="font:normal 12pt 'Roboto Condensed'">{{#if capitol_voice}}Capitol: {{capitol_voice}}{{/if}}
                 <br />{{#if district_voice }}District: {{district_voice}}{{/if}}</span></div>
                 <br />
+
+
             </div>
             <div class="container">
+
                 <div class="row justify-content-center mb-3 mt-1">
                     <div class="col-4"  style="text-align:center">
-                        <span class="nobr">2019&ndash;2020&nbsp;Score</span><br> <span class="score" style="background-color: {{ scoreColor }}">{{{Score}}}</span>
+                        <span class="nobr">2019&ndash;2020&nbsp;Score</span><br> <span class="score" style="background-color: {{ scoreColor }}; {{#if_eq scoreColor '#F00604'}}less{{/if_eq}}">{{{Score}}}</span>
                     </div>
                     <div class="col-5" style="text-align:center">
                         Lifetime Score<br><span class="score" style="background-color: {{ lifetimeScoreColor }}">{{{[Lifetime Score]}}}</span>
                 </div>
-            </div>
+<!--                    <hr style="height:1px; border:none; color:#000; background-color:#000; width:60%; text-align:center; margin: 0 auto;">-->
+
+                </div>
             </div>
             <p>Staff: check HB 1083 Mot issue, and other issues on&nbsp;the&nbsp;<a target="_blank" style="text-decoration: underline" href="https://docs.google.com/spreadsheets/d/17yxvdTk33zFh92z7CE4I2FBkKyLI4F-ePu3P0g1G4Ns/edit#gid=1327703228">To&#8209;Dos</a>.</p>
             <p>{{#if_eq [HB 430] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
@@ -179,14 +186,13 @@
             <p>{{#if_eq [HB 1100] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
                 {{/if_eq}}<a href="#bookmark_1100">HB 1100</a></p>
-            <!-- TODO: change name of this! -->
 
             <p>{{#if_eq [1100 Conc] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
             {{/if_eq}}<a href="#bookmark_Conc">HB 1100 Concurrent Vote</a></p>
 
             <br>
-        </p>
+    </div>
     </div>
 </script>
 <script>
@@ -201,11 +207,13 @@
         } else if (a==="A") {
             return '<span class="circle">&nbsp;&nbsp;Abstained&nbsp;&nbsp;</span>'
         } else if (a==="X") {
-            return '<i class="fas fa-thumbs-down fa-2x"></i> <span class="circle"><span class="circle">&nbsp;&nbsp;Unexcused Absence&nbsp;&nbsp;</span></span>'
+            return '<i class="fas fa-thumbs-down fa-2x"></i> <span class="circle">&nbsp;&nbsp;Unexcused Absence&nbsp;&nbsp;</span>'
         } else if (a==="E") {
             return '<span class="circle">&nbsp;&nbsp;Excused Absence&nbsp;&nbsp;</span>&nbsp;'
         } else if (a==="-") {
             return '<span class="circle wide105">&nbsp;&nbsp;Not in Office&nbsp;&nbsp;</span>'
+        } else if (a==="#F00604") {
+            return 'color:#ffffff;'
         } else {
             return opts.inverse(this);
         }
