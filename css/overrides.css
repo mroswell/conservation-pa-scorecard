@@ -9,10 +9,9 @@
 
 .social-icons {
   position: absolute;
-  top: 0px;
+  top: 0;
   right:18px;
 }
-
 
 .scorecard-header .header-container {
   align-items:center;
@@ -113,7 +112,9 @@ body .feature-wrapper {
 }
 
 #sidebar .entry-default-text,
-#sidebar .entry.parent {width:100%;}
+#sidebar .entry.parent {
+  width:100%;
+border-radius: 6px;}
 
 #sidebar .entry-default-text ul li:last-of-type {padding-bottom:0;}
 #sidebar .entry-default-text #default-text > :last-child {margin-bottom:0;}
@@ -126,8 +127,9 @@ body .feature-wrapper {
 
 #sidebar .entry.parent .child {
   height:auto;
-  padding:20px;
+  padding:8px 20px 20px 20px;
   width:auto;
+  border-radius: 6px;
 }
 
 #sidebar-and-map #map {
@@ -257,8 +259,6 @@ body .feature-wrapper {
   /* Lower Content */
 
   #priorityVotes .entry {width:calc(100%/3 - 24px);}
-
-
 }
 
-
+span.nobr { white-space: nowrap; }

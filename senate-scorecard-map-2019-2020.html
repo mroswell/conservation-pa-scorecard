@@ -92,7 +92,9 @@
                 <div class="logo-item logo-item-sc"><a target="_blank" href="https://www.sierraclub.org/pennsylvania"><img class="img-fluid" src="images/sc_green.png" alt="Sierra Club logo"></a></div>
                 <div class="logo-item logo-item-pe"><a target="_blank" href="https://pennenvironment.org/"><img class="img-fluid" src="images/pe_logo.jpg" alt="PennEnvironment logo"></a></div>
                 <div class="logo-item logo-item-cwa"><a target="_blank" href="https://www.cleanwateraction.org/"><img class="img-fluid" src="images/clean_water_action_logo.jpg" alt="Clean Water Action logo"></a></div>
-                <div class="logo-item logo-item-cvpa"><a target="_blank" href="https://www.conservationpa.org/"><img class="img-fluid" src="images/cvpa_logo_horizontal.png" alt="Conservation Voters of Pennsylvania logo"></a></div>
+                <div class="logo-item logo-item-cvpa" style="margin-left: 5px;">
+                <a target="_blank" href="https://www.conservationpa.org/">
+                <img class="img-fluid" src="images/cvpa_logo_horizontal.png" alt="Conservation Voters of Pennsylvania logo"></a></div>
             </div>
         </div>
     </div>
@@ -135,18 +137,20 @@
 
 <script id="senate-template-infobox" type="text/x-handlebars-template">
     <div class="entry parent" style="background-color: {{ scoreColor }}; z-index:100; height:1200px" >
+        <button type='button' id='close' class='close'>&times;</button>
         <div class="infobox child">
-            <button type='button' id='close' class='close'>&times;</button>
-            <br>
-            <p class="child-header" >
-                <img src="{{{photo}}}" class="img-fluid justify-content-center" alt="Photo" />
-                <br>{{{full_name}}} ({{{abbrev Party}}})
-                <br>District {{{District}}}
-            </p>
+            <div class="child-header" style="width: 99%; display:flex; justify-content:space-evenly; align-items:center; text-align:right" >
+                <div style="width:50%;"><img src="{{{photo}}}" class="img-fluid justify-content-center" alt="Legislator Photo"></div>
+                <div style="width:50%; text-align:left; margin-left:16px;">{{{full_name}}} ({{{ abbrev Party}}})
+                    <br />District {{{District}}}
+                    <br /> <span style="font:normal 12pt 'Roboto Condensed'">{{#if capitol_voice}}Capitol: {{capitol_voice}}{{/if}}
+                <br />{{#if district_voice }}District: {{district_voice}}{{/if}}</span></div>
+                <br />
 
+            </div>
             <div class="container">
                 <div class="row justify-content-center mb-3 mt-1">
-                    <div class="col-4"  style="text-align:center">
+                    <div class="col-5"  style="text-align:center">
                         <span class="nobr">2019&ndash;2020&nbsp;Score</span><br> <span class="score" style="background-color: {{ scoreColor }}; {{#if_eq scoreColor '#F00604'}}less{{/if_eq}}">{{{Score}}}</span>
                     </div>
                     <div class="col-5" style="text-align:center">

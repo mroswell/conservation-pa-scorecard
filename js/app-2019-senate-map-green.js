@@ -1,9 +1,7 @@
-let bill_descriptions_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT-EGPUgz964sLRYik0FuS8ZPRnx1OcItugh7olxLdH4dICmR6qn2luZtT4X0UgA7-d_a18nsrm3Xq6/pub?output=csv&gid=2083784181';
-let public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT-EGPUgz964sLRYik0FuS8ZPRnx1OcItugh7olxLdH4dICmR6qn2luZtT4X0UgA7-d_a18nsrm3Xq6/pub?output=csv&gid=1329776246";
+let SHEET_ID = "17yxvdTk33zFh92z7CE4I2FBkKyLI4F-ePu3P0g1G4Ns";
 let PAboundaryLayer;
 let PADistricts = {};
 let app = {};
-// let app = app || {};
 let freeze = 0;
 let $sidebar = $("#sidebar");
 let clickedMemberNumber;
@@ -17,16 +15,35 @@ let map = L.map("map", {
 }).setView([40.09, -77.6728], 7);
 
 
+// 1. Enable the Google Sheets API and check the quota for your project at
+//    https://console.developers.google.com/apis/api/sheets
+// 2. Get an API key. See
+//    https://console.developers.google.com/apis/
+
+let API_KEY = 'AIzaSyDKNPLWdP2gCYRyfTI4mvw20rVGx8QTHxE';
+
+function fetchSheet({ spreadsheetId, sheetName, apiKey, complete }) {
+    let url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${apiKey}`;
+    return fetch(url).then(response =>
+        response.json().then(result => {
+            let data = Papa.parse(Papa.unparse(result.values), { header: true });
+            complete(data);
+        })
+    );
+}
+
 function init() {
-    Papa.parse(public_spreadsheet_url, {
-        download: true,
-        header: true,
+    fetchSheet({
+        spreadsheetId: SHEET_ID,
+        sheetName: 'PA Senate',
+        apiKey: API_KEY,
         complete: showInfo
     });
 
-    Papa.parse(bill_descriptions_url, {
-        download: true,
-        header: true,
+    fetchSheet({
+        spreadsheetId: SHEET_ID,
+        sheetName: 'Senate Bill Descriptions',
+        apiKey: API_KEY,
         complete: function(results) {
             var bills = results.data;
             console.log(bills);
@@ -89,7 +106,6 @@ function loadGeo() {
 }
 }
 
-
 let geoStyle = function(data) {
     let legisId = data.properties.NAME;
     let scoreColor = getColor(parseInt(PADistricts[legisId].Score));
@@ -105,9 +121,6 @@ let geoStyle = function(data) {
 };
 
 $(document).ready(function() {
-
-    console.log("vote_context-outside", vote_context);
-
     let sourcebox = $("#senate-template-infobox").html();
     app.infoboxTemplate = Handlebars.compile(sourcebox);
 
@@ -187,18 +200,36 @@ map.attributionControl.addAttribution(
     'District Boundaries &copy; <a href="http://census.gov/">US Census Bureau</a>'
 );
 
-$(document).on("click", ".close", function(event) {
-    event.preventDefault();
-    clearInfobox();
-    freeze = 0;
-});
-
 function clearInfobox() {
     $sidebar.html(" ");
     $sidebar.append(app.welcome);
     let $heading = $(".entry-default-text h4");
     $heading.html("Map Help");
 }
+
+$(document).on("click", ".close", function(event) {
+    event.preventDefault();
+    clearInfobox();
+    freeze = 0;
+});
+
+// Enable Escape key to close popup
+$(document).on('keydown',function(evt) {
+    evt = evt || window.evt;
+    let isEscape = false;
+    if ("key" in evt) {
+        isEscape = (evt.key === "Escape" || evt.key === "Esc");
+    } else {
+        isEscape = (evt.keyCode === 27);
+    }
+    if (isEscape) {
+        console.log ('escape room');
+        evt.preventDefault();
+        clearInfobox();
+        freeze = 0;
+    }
+});
+
 document.getElementById("buttonState").addEventListener("click", function () {
     map.flyTo([40.09, -77.6728], 7, {
         animate: true,

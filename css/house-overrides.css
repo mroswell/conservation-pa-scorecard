@@ -9,7 +9,7 @@
 
 .social-icons {
   position: absolute;
-  top: 0px;
+  top: 0;
   right:18px;
 }
 
@@ -257,9 +257,6 @@ body .feature-wrapper {
   /* Lower Content */
 
   #priorityVotes .entry {width:calc(100%/3 - 24px);}
-
-
 }
-
 
 span.nobr { white-space: nowrap; }
