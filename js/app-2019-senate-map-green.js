@@ -14,7 +14,6 @@ let map = L.map("map", {
     minZoom: 6
 }).setView([40.09, -77.6728], 7);
 
-
 // 1. Enable the Google Sheets API and check the quota for your project at
 //    https://console.developers.google.com/apis/api/sheets
 // 2. Get an API key. See
@@ -46,16 +45,12 @@ function init() {
         apiKey: API_KEY,
         complete: function(results) {
             var bills = results.data;
-            console.log(bills);
-            console.log(vote_context.priority_votes);
 
             $.each(bills, function(i, bill) {
                 if (bill['include']==='Yes') {
-                    console.log("YES!");
                     vote_context.priority_votes.push(bill)
                 }
             });
-            console.log("vote_context", vote_context);
             let key_votes = $("#senate-template-bottom").html();
             app.template = Handlebars.compile(key_votes);
             // let html = app.template(vote_context);
