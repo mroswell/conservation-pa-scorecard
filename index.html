@@ -34,7 +34,7 @@
 		</a>
         <div class="social-icons">
         <a href="https://www.instagram.com/conservationvoterspa/" target="_blank"><i class="fab fa-instagram-square fa-2x"></i></a>
-                <a href="https://twitter.com/intent/tweet?text=%22I%20just%20checked%20my%20state%20legislators%27%20environmental%20score%20on%20the%20Pennsylvania%20Environmental%20Scorecard%21%20Find%20out%20how%20your%20legislators%20match%20up%20with%20your%20environmental%20values%3A%20conservationpa.org%2Fscorecard%22
+                <a href="https://twitter.com/intent/tweet?text=%22I%20just%20checked%20my%20state%20legislators%27%20environmental%20scores%20on%20the%20Pennsylvania%20Environmental%20Scorecard%21%20Find%20out%20how%20your%20legislators%20match%20up%20with%20your%20environmental%20values%3A%20conservationpa.org%2Fscorecard%22
 &url=https%3A%2F%2Fscorecard.conservationpa.org%2F" target="_blank">
             <i class="fab fa-twitter-square fa-2x"></i></a>
         <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fscorecard.conservationpa.org&amp;t=Pennsylvania%20Environmental%20Scorecard" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
@@ -49,7 +49,7 @@
             <div>
                 <ul class="nav nav-pills">
                     <a style="background-color: #085A0A;" class="text-sm-center nav-link active" href="#">Senate</a> &nbsp; &nbsp;
-                    <a style="background-color: white; color: #0c0b3e; " class="text-sm-center nav-link active"  href="house-scorecard-map-2019-2020.html">House</a>
+                    <a style="background-color: white; color: #0c0b3e; " class="text-sm-center nav-link active"  href="house-scorecard-2019-2020.html">House</a>
                 </ul>
             </div>
         </div>
@@ -118,10 +118,11 @@
                 <li><strong>Click a district</strong> to freeze the vote details panel.</li>
                 <li><strong>Click a bill number</strong> in the vote details panel to scroll down to see bill detail.</li>
                 <li><strong>Click any bill number</strong> in bill details to scroll back up.</li>
-                <li><strong>Click the 'x'</strong> (or <strong>press the 'Escape' key'</strong>) to dismiss the info panel and re-enable mouseover
+                <li><strong>Click the 'x'</strong> (or <strong>press the 'Escape' key'</strong>) to dismiss the vote details panel and re-enable mouseover.
                     function.
                 </li>
                 <li><strong>Zoom</strong> into selected district to see street detail.</li>
+                <li><strong>Access the PDF version</strong> of this scorecard at <a target="_blank" href="http://conservationpa.org/scorecard"></a></li>
             </ul>
 
         </div>
@@ -132,8 +133,10 @@
     <div class="entry priority_vote" id="bookmark_{{bill_bookmark bill_number}}">
         <div class="body">
             <h5><a href="#top">{{{bill_number}}}: {{{bill_subtitle}}}</a></h5>
+            {{#if status}}<p><strong>{{{status}}}</strong></p>{{/if}}
+            {{#if date}}<p><em>{{{date}}}</em></p>{{/if}}
+            <p><em>{{{movement}}}</em></p>
             <p>{{{bill_description}}}</p>
-            <p><em>Outcome: {{{outcome}}}</em></p>
             <p><em>The Pro-Environment vote is &ldquo;{{{stance}}}.&rdquo;</em></p>
         </div>
     </div>
