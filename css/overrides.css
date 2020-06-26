@@ -283,6 +283,11 @@ button.btn {font-size: x-small;}
     width: 13%;
   }
 
+  #logo-item a {
+    display:block;
+    width:86%;
+  }
+
 }
 
 
@@ -300,10 +305,16 @@ button.btn {font-size: x-small;}
 
   /* logos */
   .logo-item-cvpa {
-    width:19%;
+    width:17%;
   }
   .logo-item-sc {
-    width: 10%;
+    width: 9%;
+  }
+  .logo-item-pe {
+    width:22%;
+  }
+  .logo-item-cwa {
+    width: 20%;
   }
 }
 
