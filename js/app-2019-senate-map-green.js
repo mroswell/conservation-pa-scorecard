@@ -240,7 +240,7 @@ document.getElementById("buttonPittsburgh").addEventListener("click", function (
 });
 
 document.getElementById("buttonPhiladelphia").addEventListener("click", function () {
-    map.flyTo([40, -75.2], 10, {
+    map.flyTo([40, -75.2], 9.75, {
         animate: true,
         duration: 1.4 // in seconds
     });

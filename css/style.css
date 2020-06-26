@@ -365,7 +365,7 @@ div#scorecard-legend ul li {
     float: left;
     font-size: 12px;
     text-align: center;
-    width: 65px;
+    width: 63px;
     padding: 0;
 }
 
@@ -410,28 +410,3 @@ span.score {
     font: 600 11pt 'Roboto', sans-serif;
 }
 
-#logos {
-    /*width: 85%;*/
-    display:flex;
-    /*height: 150px;*/
-    justify-content:space-evenly;
-    align-items:center;
-    /*text-align:center;*/
-}
-
-.logo-item {
-    margin: 15px;
-}
-.logo-item-sc {
-    width: 18%;
-}
-/*.logo-item-pe {*/
-/*    width:20%;*/
-/*}*/
-/*.logo-item-cwa {*/
-/*    width:20%;*/
-/*}*/
-
-/*.logo-item-cvpa {*/
-/*    width:40%;*/
-/*}*/
