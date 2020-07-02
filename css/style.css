@@ -314,9 +314,17 @@ button#close.close {padding: 5px 9px 0;}
 }
 .score {
     font: 600 14pt 'Roboto', sans-serif;
-    display: inline-block;
-    width:41px;
+    /*display: inline-block;*/
+    /*width:41px;*/
+    /*border-radius: 5px;*/
+    display: inline-flex;
+    width: 43px;
     border-radius: 5px;
+    height: 43px;
+    align-items: center;
+    justify-content: space-around;
+
+
 }
 span > i {
     padding-right: 10px;
