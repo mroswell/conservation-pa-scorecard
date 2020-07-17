@@ -154,7 +154,7 @@
                 <br />
 
             </div>
-            <div class="container">
+            <div class="container votes">
                 <div class="row justify-content-center mb-3 mt-2">
                     <div class="col-5"  style="text-align:center">
                         <span class="nobr">2019&ndash;2020</span> Score<br> <span class="score" style="background-color: {{ scoreColor }}; {{#if_eq scoreColor '#F00604'}}less{{/if_eq}}">{{{Score}}}</span>
@@ -164,26 +164,28 @@
                     </div>
                 </div>
             </div>
+            <div>
+                <ul class="fa-ul">
+            <li>{{#if_eq [HB 1100] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+                <a href="#bookmark_1100">HB 1100: Subsidies for petrochemical plants</a></li>
 
-            <p>{{#if_eq [HB 1100] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
-            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-            {{/if_eq}}<a href="#bookmark_1100">HB 1100</a></p>
+            <li>{{#if_eq [SB 327 Conc] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+            <a href="#bookmark_Conc">SB 327 Concurrent Vote: Gumbo beet greens corn soko endive gumbo gourd. </a></li>
 
-            <p>{{#if_eq [SB 327 Conc] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
-            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-            <a href="#bookmark_Conc">SB 327 Concurrent Vote</a></p>
+            <li>{{#if_eq [SB 398] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
+            {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+            <a href="#bookmark_398">SB 398: Parsley shallot courgette tatsoi pea sprouts fava bean collard greens </a></li>
 
-            <p>{{#if_eq [SB 398] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
-            {{else}}<i class="fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-            <a href="#bookmark_398">SB 398</a></p>
+            <li>{{#if_eq [SB 619] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+                <a href="#bookmark_619">SB 619: Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi</a></li>
 
-            <p>{{#if_eq [SB 619] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                <a href="#bookmark_619">SB 619</a></p>
-
-            <p>{{#if_eq [SB 790] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                <a href="#bookmark_790">SB 790</a></p>
+            <li>{{#if_eq [SB 790] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+                <a href="#bookmark_790">SB 790: Rolls back oil and gas protections</a></li>
+            </ul>
             <br>
         </div>
         </div>

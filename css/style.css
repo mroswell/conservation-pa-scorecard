@@ -91,10 +91,10 @@ body {
 }
 
 ul {
-    padding: 0 2.5em 0 2.5em;
-    margin: 0;
+    /*padding: 0 2.5em 0 2.5em;*/
+    /*margin: 0;*/
     /*list-style-image: url(../images/triangle.gif);*/
-    list-style-type: disc;
+    /*list-style-type: disc;*/
 }
 
 li {
@@ -143,10 +143,14 @@ button {
 }
 
 #sidebar ul {
-    padding: 0 1.2em;
+    /*padding: 0 1.2em;*/
 }
 
 
+.container.votes ul li{
+    /*list-style-position: outside;  margin-left: .5em; text-indent:-.5em;*/
+    list-style-type:none;
+}
 p.info-title {
     font-size: 120%;
 }
@@ -167,6 +171,9 @@ h2, h4, h5 {
     text-decoration: none;
 }
 
+.fa-li {
+    /*left: 30px !important;*/
+}
 i.fas.fa-thumbs-up.fa-2x, i.fas.fa-thumbs-down.fa-2x{
     font-size: 1.5em;
 }
@@ -348,6 +355,7 @@ span > i {
     text-align:center;
     background:#515151;
     font-family: 'Archivo Narrow', serif;
+    margin-left:-5em;
 }
 
 .wide105 {width:150px;}

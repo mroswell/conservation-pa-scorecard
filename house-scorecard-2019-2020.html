@@ -81,7 +81,6 @@
                 </div>
 
                 <div id="map"></div>
-
             </div>
         </div>
         <div class="row" id="lower-content">
@@ -157,7 +156,7 @@
                 <br />
 
             </div>
-            <div class="container">
+            <div class="container votes">
                 <div class="row justify-content-center mb-3 mt-2">
                     <div class="col-5"  style="text-align:center">
                         <span class="nobr">2019&ndash;2020</span> Score<br> <span class="score" style="background-color: {{ scoreColor }}; {{#if_eq scoreColor '#F00604'}}less{{/if_eq}}">{{{Score}}}</span>
@@ -166,51 +165,54 @@
                         Lifetime Score<br><span class="score" style="background-color: {{ lifetimeScoreColor }}">{{{[Lifetime Score]}}}</span>
                 </div>
                 </div>
-            </div>
-            <p>{{#if_eq [HB 430] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                <a href="#bookmark_430">HB 430</a></p>
+<div>
+            <ul class="fa-ul">
+            <li>{{#if_eq [HB 430] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+                <a href="#bookmark_430">HB 430: Regulatory Interference<br/ >(Disrupts environmental regulation implementation)</a></li>
 
-            <p>{{#if_eq [HB 509] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                <a href="#bookmark_509">HB 509</a></p>
+            <li>{{#if_eq [HB 509] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+                <a href="#bookmark_509">HB 509: Regulatory Interference<br/ >(Gives polluters permitting authority)</a></li>
 
-            <p>{{#if_eq [HB 762] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                <a href="#bookmark_762">HB 762</a></p>
+            <li>{{#if_eq [HB 762] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+                <a href="#bookmark_762">HB 762: Regulatory Interference<br/ >(Created “Regulatory Compliance Officer”)</a></li>
 
-            <p>{{#if_eq [HB 806] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                <a href="#bookmark_806">HB 806</a></p>
+            <li>{{#if_eq [HB 806] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+                <a href="#bookmark_806">HB 806: Regulatory Interference<br/ >(Gives politicians regulatory authority)</a></li>
 
-            <p>{{#if_eq [HB 1083 Mot] "Yea"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                <a href="#bookmark_Mot">HB 1083 Motion</a></p>
+            <li>{{#if_eq [HB 1083 Mot] "Yea"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+                <a href="#bookmark_Mot">HB 1083 Motion: Halts prohibition of plastic bag bans and fees</a></li>
 
-            <p>{{#if_eq [HB 1100] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}}<a href="#bookmark_1100">HB 1100</a></p>
+            <li>{{#if_eq [HB 1100] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+                <a href="#bookmark_1100">HB 1100: Subsidies for petrochemical plants</a></li>
 
-            <p>{{#if_eq [HB 1100 Conc] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}}<a href="#bookmark_Conc">HB 1100 Concurrent Vote</a></p>
+            <li>{{#if_eq [HB 1100 Conc] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+                <a href="#bookmark_Conc">HB 1100 Concurrent Vote: </a></li>
 
-            <p>{{#if_eq [HB 1822] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}}<a href="#bookmark_1822">HB 1822</a></p>
+            <li>{{#if_eq [HB 1822] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+                <a href="#bookmark_1822">HB 1822: Halts key environmental funding</a></li>
 
-            <p>{{#if_eq [HB 2025] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>
-                {{/if_eq}}<a href="#bookmark_2025">HB 2025</a></p>
+            <li>{{#if_eq [HB 2025] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+                <a href="#bookmark_2025">HB 2025: Prevents Pennsylvania from addressing climate change</a></li>
 
-            <p>{{#if_eq [SB 327] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                <a href="#bookmark_327">SB 327</a></p>
+            <li>{{#if_eq [SB 327] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+                <a href="#bookmark_327">SB 327: Stops new environmental regulations during COVID&#8209;19</a></li>
 
-            <p>{{#if_eq [SB 790] "Nay"}}<i class="fas fa-thumbs-up fa-2x"></i>
-                {{else}}<i class="fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                <a href="#bookmark_790">SB 790</a></p>
+            <li>{{#if_eq [SB 790] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
+                {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+                <a href="#bookmark_790">SB 790: Rolls back oil and gas protections</a></li>
+            </ul>
             <br>
+</div>
     </div>
     </div>
 </script>

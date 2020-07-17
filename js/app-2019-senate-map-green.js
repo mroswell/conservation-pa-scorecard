@@ -99,6 +99,21 @@ function loadGeo() {
         style: data => geoStyle(data)
     }).addTo(map);
 }
+
+    let district = getQueryVariable("district");
+    if (district) {
+        distsplit = district.split('-');
+        distnum = distsplit[distsplit.length - 1];
+        console.log(distnum);
+        // var firstPathWithClass = document.querySelector("."+district);
+        console.log("."+district);
+        // firstPathWithClass.dispatchEvent(new Event('click'));
+        PAboundaryLayer.eachLayer(layer => {
+            if (layer.feature.properties.NAME === distnum) {
+                layer.fireEvent('click');
+            }
+        });
+    }
 }
 
 let geoStyle = function(data) {
@@ -111,7 +126,8 @@ let geoStyle = function(data) {
         opacity: 0.9,
         color: "#fefefe",
         dashArray: "0",
-        fillOpacity: 0.7
+        fillOpacity: 0.7,
+        className: "SD-"+legisId //add class to path
     };
 };
 
@@ -172,6 +188,7 @@ function mapMemberDetailClick(e) {
     freeze = 1;
     let boundary = e.target;
     let legisId = parseInt(boundary.feature.properties.NAME);
+    queryString.push('district', "SD-"+legisId);
     let member = memberDetailFunction(legisId);
 }
 
@@ -206,6 +223,14 @@ $(document).on("click", ".close", function(event) {
     event.preventDefault();
     clearInfobox();
     freeze = 0;
+
+    if (typeof isLocal != "undefined") {
+        isLocal = getQueryVariable("_ijt");
+        isLocalFullParam = "?_ijt="+ isLocal;
+    } else {
+        isLocalFullParam="";
+    }
+    window.history.pushState({}, document.title, window.location.pathname + isLocalFullParam );
 });
 
 // Enable Escape key to close popup
@@ -222,6 +247,14 @@ $(document).on('keydown',function(evt) {
         evt.preventDefault();
         clearInfobox();
         freeze = 0;
+        if (typeof isLocal != "undefined") {
+            isLocal = getQueryVariable("_ijt");
+            isLocalFullParam = "?_ijt=" + isLocal;
+        } else {
+            isLocalFullParam = "";
+        }
+        window.history.pushState({}, document.title, window.location.pathname + isLocalFullParam);
+
     }
 });
 
@@ -251,3 +284,91 @@ document.getElementById("buttonAllentown").addEventListener("click", function ()
         duration: 1.4 // in seconds
     });
 });
+
+/*!
+ query-string
+ Parse and stringify URL query strings
+ https://github.com/sindresorhus/query-string
+ by Sindre Sorhus
+ MIT License
+ */
+(function () {
+    'use strict';
+    var queryString = {};
+
+    queryString.parse = function (str) {
+        if (typeof str !== 'string') {
+            return {};
+        }
+
+        str = str.trim().replace(/^\?/, '');
+
+        if (!str) {
+            return {};
+        }
+
+        return str.trim().split('&').reduce(function (ret, param) {
+            var parts = param.replace(/\+/g, ' ').split('=');
+            var key = parts[0];
+            var val = parts[1];
+
+            key = decodeURIComponent(key);
+            // missing `=` should be `null`:
+            // http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
+            val = val === undefined ? null : decodeURIComponent(val);
+
+            if (!ret.hasOwnProperty(key)) {
+                ret[key] = val;
+            } else if (Array.isArray(ret[key])) {
+                ret[key].push(val);
+            } else {
+                ret[key] = [ret[key], val];
+            }
+
+            return ret;
+        }, {});
+    };
+
+    queryString.stringify = function (obj) {
+        return obj ? Object.keys(obj).map(function (key) {
+            var val = obj[key];
+
+            if (Array.isArray(val)) {
+                return val.map(function (val2) {
+                    return encodeURIComponent(key) + '=' + encodeURIComponent(val2);
+                }).join('&');
+            }
+
+            return encodeURIComponent(key) + '=' + encodeURIComponent(val);
+        }).join('&') : '';
+    };
+
+    queryString.push = function (key, new_value) {
+        var params = queryString.parse(location.search);
+        if(new_value == null){
+            delete params[key];
+        } else {
+            params[key] = new_value;
+        }
+        var new_params_string = queryString.stringify(params);
+        history.pushState({}, "", window.location.pathname + '?' + new_params_string);
+    }
+
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = queryString;
+    } else {
+        window.queryString = queryString;
+    }
+})();
+
+function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i=0;i<vars.length;i++) {
+        var pair = vars[i].split("=");
+        if(pair[0] == variable){return pair[1];}
+    }
+    return(false);
+}
+
+

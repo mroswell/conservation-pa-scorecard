@@ -101,15 +101,18 @@ function showInfo(results) {
     }
 
     let district = getQueryVariable("district");
-    console.log(district);
     if (district) {
         distsplit = district.split('-');
-        distnum = parseInt(distsplit[distsplit.length - 1]);
+        distnum = distsplit[distsplit.length - 1];
         console.log(distnum);
-        var firstPathWithClass = document.querySelector("."+district);
+        // var firstPathWithClass = document.querySelector("."+district);
         console.log("."+district);
-        console.log(firstPathWithClass);
-        firstPathWithClass.dispatchEvent(new Event('click'));
+        // firstPathWithClass.dispatchEvent(new Event('click'));
+        PAboundaryLayer.eachLayer(layer => {
+            if (layer.feature.properties.NAME === distnum) {
+                layer.fireEvent('click');
+            }
+        });
     }
 }
 
@@ -124,7 +127,7 @@ let geoStyle = function(data) {
         color: "#fefefe",
         dashArray: "0",
         fillOpacity: 0.7,
-        className: "house-district-"+legisId //add class to path
+        className: "HD-"+legisId //add class to path
     };
 };
 
@@ -185,7 +188,7 @@ function mapMemberDetailClick(e) {
     freeze = 1;
     let boundary = e.target;
     let legisId = parseInt(boundary.feature.properties.NAME);
-    queryString.push('district', "house-district-"+legisId);
+    queryString.push('district', "HD-"+legisId);
     let member = memberDetailFunction(legisId);
 }
 
@@ -220,6 +223,14 @@ $(document).on("click", ".close", function(event) {
     event.preventDefault();
     clearInfobox();
     freeze = 0;
+
+    if (typeof isLocal != "undefined") {
+        isLocal = getQueryVariable("_ijt");
+        isLocalFullParam = "?_ijt="+ isLocal;
+    } else {
+        isLocalFullParam="";
+    }
+    window.history.pushState({}, document.title, window.location.pathname + isLocalFullParam );
 });
 
 // Enable Escape key to close popup
@@ -232,11 +243,19 @@ $(document).on('keydown',function(evt) {
         isEscape = (evt.keyCode === 27);
     }
     if (isEscape) {
-        console.log ('escape room');
+        console.log('escape room');
         evt.preventDefault();
         clearInfobox();
         freeze = 0;
-    }
+        if (typeof isLocal != "undefined") {
+            isLocal = getQueryVariable("_ijt");
+            isLocalFullParam = "?_ijt=" + isLocal;
+        } else {
+            isLocalFullParam = "";
+        }
+        window.history.pushState({}, document.title, window.location.pathname + isLocalFullParam);
+
+}
 });
 
 document.getElementById("buttonState").addEventListener("click", function () {
