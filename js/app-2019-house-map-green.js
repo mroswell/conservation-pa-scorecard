@@ -70,7 +70,7 @@ function showInfo(results) {
     $.each(data, function(i, member) {
         scoreColor = getColor(parseInt(member.Score));
         member['scoreColor'] = scoreColor;
-        lifetimeScoreColor = getColor(parseInt(member["Lifetime Score"]));
+        lifetimeScoreColor = getColor(parseInt(member["lifetime_score"]));
         member['lifetimeScoreColor'] = lifetimeScoreColor;
         if (member.District) {
             PADistricts[member.District] = member;
@@ -104,10 +104,6 @@ function showInfo(results) {
     if (district) {
         distsplit = district.split('-');
         distnum = distsplit[distsplit.length - 1];
-        console.log(distnum);
-        // var firstPathWithClass = document.querySelector("."+district);
-        console.log("."+district);
-        // firstPathWithClass.dispatchEvent(new Event('click'));
         PAboundaryLayer.eachLayer(layer => {
             if (layer.feature.properties.NAME === distnum) {
                 layer.fireEvent('click');
@@ -243,7 +239,6 @@ $(document).on('keydown',function(evt) {
         isEscape = (evt.keyCode === 27);
     }
     if (isEscape) {
-        console.log('escape room');
         evt.preventDefault();
         clearInfobox();
         freeze = 0;

@@ -162,7 +162,7 @@
                         <span class="nobr">2019&ndash;2020</span> Score<br> <span class="score" style="background-color: {{ scoreColor }}; {{#if_eq scoreColor '#F00604'}}less{{/if_eq}}">{{{Score}}}</span>
                     </div>
                     <div class="col-5" style="text-align:center">
-                        Lifetime Score<br><span class="score" style="background-color: {{ lifetimeScoreColor }}">{{{[Lifetime Score]}}}</span>
+                        Lifetime Score<br><span class="score" style="background-color: {{ lifetimeScoreColor }}">{{{[lifetime_score]}}}%</span>
                 </div>
                 </div>
 <div>
@@ -175,6 +175,10 @@
                 {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
                 <a href="#bookmark_509">HB 509: Regulatory Interference<br/ >(Gives polluters permitting authority)</a></li>
 
+                <li>{{#if_eq [HB 732 Mot] "Yea"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
+                    {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+                    <a href="#bookmark_732Mot">HB 732 Motion: IS THIS BEING INCLUDED? Let me know. If so, complete description.</a></li>
+
             <li>{{#if_eq [HB 762] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
                 <a href="#bookmark_762">HB 762: Regulatory Interference<br/ >(Created “Regulatory Compliance Officer”)</a></li>
@@ -185,7 +189,7 @@
 
             <li>{{#if_eq [HB 1083 Mot] "Yea"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                <a href="#bookmark_Mot">HB 1083 Motion: Halts prohibition of plastic bag bans and fees</a></li>
+                <a href="#bookmark_1083Motion">HB 1083 Motion: Halts prohibition of plastic bag bans and fees</a></li>
 
             <li>{{#if_eq [HB 1100] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
@@ -193,7 +197,7 @@
 
             <li>{{#if_eq [HB 1100 Conc] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                <a href="#bookmark_Conc">HB 1100 Concurrent Vote: </a></li>
+                <a href="#bookmark_ConcurrentVote">HB 1100 Concurrent Vote: </a></li>
 
             <li>{{#if_eq [HB 1822] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
@@ -243,8 +247,13 @@
     });
 
     Handlebars.registerHelper('bill_bookmark', function(bill) {
-        var t = bill.split(" ");
-        return t[t.length - 1];
+        let wc = bill.split(" ");
+        let word_count = wc.length;
+        if (word_count<3) {
+            return wc[word_count - 1];
+        } else {
+            return wc[word_count - 2]+wc[word_count - 1];
+        }
     });
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -253,7 +262,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'UA-113166990-3');
 </script>
 </body>
