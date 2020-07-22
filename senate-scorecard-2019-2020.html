@@ -86,9 +86,9 @@
             <div id="priorityVotes"></div>
             <div class="about_us">
                 <h4>About Our Scorecard</h4>
-                <p>Conservation Voters of PA's Environmental Scorecard rates each member of the Pennsylvania Senate and House on their conservation record and actions taken to protect the environment in the commonwealth. The Scorecard holds state legislators accountable for their votes on open space, water and air issues that affect families across our state.</p>
-                <p>You will find objective, nonpartisan information about how each member of the legislature voted on conservation issues. Scores are based on rigorous analysis, review, and consultation with environmental policy experts from across the state, and track the most important votes made in the 2019-2020 legislative session. We invite you to examine the scores of your representative and your senator to see how well their votes match up with your conservation values.</p>
-                <p>Look up your lawmakers to see how they scored, and then ask them to do better in the next legislative session – or thank them if they’re one of our champs!</p>
+                <p>The Pennsylvania Environmental Scorecard rates each member of the State Senate and House on their environmental voting record using the most crucial environmental votes that the Pennsylvania General Assembly took during the current legislative session. The Scorecard holds state legislators accountable for their votes on clean water, air pollution, climate change, and environmental justice, and other environmental issues that affect all Pennsylvanians.</p>
+                <p>To compile these scores, our organizations worked with dozens of other environmental advocates, activists, and leaders to ensure that we are reviewing and scoring the most important and highly watched environmental votes, and that we are educating legislators on the environmental impacts of the legislation in question. A lifetime score was also given for each legislator. This score reflects their pro-environment voting record going back to the 2007-2008 legislative session. This adds greater context to each legislator’s position on environmental issues over time.</p>
+                <p>We invite you to look up your representative and senator to see how well their votes match up with your environmental values!</p>
             </div>
             <div id="logos">
                 <div class="logo-item logo-item-cvpa">
@@ -131,11 +131,11 @@
     <div class="entry priority_vote" id="bookmark_{{bill_bookmark bill_number}}">
         <div class="body">
             <h5><a href="#top">{{{bill_number}}}: {{{bill_subtitle}}}</a></h5>
-            {{#if status}}<p><strong>{{{status}}}</strong></p>{{/if}}
-            {{#if date}}<p><em>{{{date}}}</em></p>{{/if}}
             <p><em>{{{movement}}}</em></p>
+            {{#if date}}<p><em>{{{date}}}</em></p>{{/if}}
             <p>{{{bill_description}}}</p>
             <p><em>The Pro-Environment vote is &ldquo;{{{stance}}}.&rdquo;</em></p>
+            {{#if status}}<p>{{{status}}}</p>{{/if}}
         </div>
     </div>
     {{/each}}
@@ -172,7 +172,7 @@
 
             <li>{{#if_eq [SB 327 Conc] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
             {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-            <a href="#bookmark_ConcurrentVote">SB 327, Concurrence Vote: Stops new environmental regulations during COVID-19 </a></li>
+            <a href="#bookmark_ConcurrenceVote">SB 327, Concurrence Vote: Stops new environmental regulations during COVID-19 </a></li>
 
             <li>{{#if_eq [SB 398] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
             {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
