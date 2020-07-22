@@ -126,8 +126,8 @@ border-radius: 6px;}
 }
 
 #sidebar .entry.parent .child {
-  height:auto;
-  padding:8px 20px 20px 20px;
+  height:inherit;
+  padding:8px 20px 0 20px;
   width:auto;
   border-radius: 6px;
 }
