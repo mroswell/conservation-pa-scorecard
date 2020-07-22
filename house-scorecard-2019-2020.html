@@ -133,11 +133,11 @@
     <div class="entry priority_vote" id="bookmark_{{bill_bookmark bill_number}}">
         <div class="body">
             <h5><a href="#top">{{{bill_number}}}: {{{bill_subtitle}}}</a></h5>
-            {{#if status}}<p><strong>{{{status}}}</strong></p>{{/if}}
-            {{#if date}}<p><em>{{{date}}}</em></p>{{/if}}
             <p><em>{{{movement}}}</em></p>
+            {{#if date}}<p><em>{{{date}}}</em></p>{{/if}}
             <p>{{{bill_description}}}</p>
             <p><em>The Pro-Environment vote is &ldquo;{{{stance}}}.&rdquo;</em></p>
+            {{#if status}}<p>{{{status}}}</p>{{/if}}
         </div>
     </div>
     {{/each}}
@@ -175,9 +175,13 @@
                 {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
                 <a href="#bookmark_509">HB 509: Regulatory Interference<br/ >(Gives polluters permitting authority)</a></li>
 
+                <li>{{#if_eq [HB 732] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
+                    {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+                    <a href="#bookmark_732">HB 732: Establishes a petrochemical tax credit</a></li>
+
                 <li>{{#if_eq [HB 732 Mot] "Yea"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                     {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                    <a href="#bookmark_732Mot">HB 732 Motion: IS THIS BEING INCLUDED? Let me know. If so, complete description.</a></li>
+                    <a href="#bookmark_732Mot">HB 732, Motion:</a></li>
 
             <li>{{#if_eq [HB 762] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
@@ -189,7 +193,7 @@
 
             <li>{{#if_eq [HB 1083 Mot] "Yea"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                <a href="#bookmark_1083Motion">HB 1083 Motion: Halts prohibition of plastic bag bans and fees</a></li>
+                <a href="#bookmark_1083Motion">HB 1083, Motion: Halts prohibition of plastic bag bans and fees</a></li>
 
             <li>{{#if_eq [HB 1100] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
@@ -197,7 +201,7 @@
 
             <li>{{#if_eq [HB 1100 Conc] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                <a href="#bookmark_ConcurrentVote">HB 1100 Concurrent Vote: </a></li>
+                <a href="#bookmark_ConcurrenceVote">HB 1100 Concurrence Vote: Subsidies for petrochemical plants </a></li>
 
             <li>{{#if_eq [HB 1822] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
