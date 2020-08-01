@@ -173,11 +173,11 @@
             <ul class="fa-ul">
             <li>{{#if_eq [HB 430] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                <a href="#bookmark_430">HB 430: Regulatory Interference<br/ >(Disrupts environmental regulation implementation)</a></li>
+                <a href="#bookmark_430">HB 430: Regulatory Interference<br />(Disrupts environmental regulation implementation)</a></li>
 
             <li>{{#if_eq [HB 509] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                <a href="#bookmark_509">HB 509: Regulatory Interference<br/ >(Gives polluters permitting authority)</a></li>
+                <a href="#bookmark_509">HB 509: Regulatory Interference<br />(Gives polluters permitting authority)</a></li>
 
                 <li>{{#if_eq [HB 732] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                     {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
@@ -185,15 +185,15 @@
 
                 <li>{{#if_eq [HB 732 Mot] "Yea"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                     {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                    <a href="#bookmark_732Mot">HB 732, Motion:</a></li>
+                    <a href="#bookmark_732Motion">HB 732, Motion: Establishes a petrochemical tax credit<br />(Motion to include environmental protections)</a></li>
 
             <li>{{#if_eq [HB 762] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                <a href="#bookmark_762">HB 762: Regulatory Interference<br/ >(Created “Regulatory Compliance Officer”)</a></li>
+                <a href="#bookmark_762">HB 762: Regulatory Interference<br />(Created “Regulatory Compliance Officer”)</a></li>
 
             <li>{{#if_eq [HB 806] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                <a href="#bookmark_806">HB 806: Regulatory Interference<br/ >(Gives politicians regulatory authority)</a></li>
+                <a href="#bookmark_806">HB 806: Regulatory Interference<br />(Gives politicians regulatory authority)</a></li>
 
             <li>{{#if_eq [HB 1083 Mot] "Yea"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                 {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
@@ -257,9 +257,12 @@
         let wc = bill.split(" ");
         let word_count = wc.length;
         if (word_count<3) {
-            return wc[word_count - 1];
+            let bookmark_text = wc[word_count - 1];
+            return bookmark_text;
         } else {
-            return wc[word_count - 2]+wc[word_count - 1];
+            let bookmark_text = wc[word_count - 2]+wc[word_count - 1];
+            bookmark_text = bookmark_text.replace(',','');
+            return bookmark_text;
         }
     });
 </script>

@@ -308,9 +308,12 @@
         let wc = bill.split(" ");
         let word_count = wc.length;
         if (word_count < 3) {
-            return wc[word_count - 1];
+            let bookmark_text = wc[word_count - 1];
+            return bookmark_text;
         } else {
-            return wc[word_count - 2] + wc[word_count - 1];
+            let bookmark_text = wc[word_count - 2]+wc[word_count - 1];
+            bookmark_text = bookmark_text.replace(',','');
+            return bookmark_text;
         }
     });
 </script>
