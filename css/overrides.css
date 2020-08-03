@@ -1,10 +1,10 @@
 /* Header Stuff */
 
 .fa-facebook, .fa-facebook-square {
-  color: #3b5998
+  color: #3b5998;
 }
 .fa-twitter, .fa-twitter-square {
-  color: #00aced
+  color: #00aced;
 }
 
 .social-icons {
@@ -138,44 +138,6 @@ border-radius: 6px;}
   padding:20px;
   width:100%;
 }
-
-#map-legend {
-  margin:0 auto 4px;
-  width:100%;
-}
-
-#map-legend .map-legend {
-  color:#000;
-  font-family:Arial, sans-serif;
-  font-size:12px;
-  font-weight:700;
-  line-height:20px;
-  margin:unset;
-  text-align:center;
-}
-
-.map-legend .legend-item {
-  padding:0 0 0 30px;
-  position:relative;
-}
-
-.map-legend .legend-item:before {
-  background:#f00;
-  border-radius:7px;
-  content:"";
-  display:block;
-  height:14px;
-  left:12px;
-  position:absolute;
-  top:0;
-  width:14px;
-}
-
-.map-legend .quintile-2:before {background:#fca300;}
-.map-legend .quintile-3:before {background:#fef200;}
-.map-legend .quintile-4:before {background:#82e0c3;}
-.map-legend .quintile-5:before {background:#4eab07;}
-
 
 /* Lower Content */
 
@@ -330,6 +292,3 @@ span.nobr { white-space: nowrap; }
   align-items:center;
   /*text-align:center;*/
 }
-
-
-
