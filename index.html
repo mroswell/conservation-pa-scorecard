@@ -196,7 +196,7 @@
     <div class="entry priority_vote"
          id="bookmark_{{bill_bookmark bill_number}}">
         <div class="body">
-      <h5><a href="#top">{{{bill_number}}}: <em>{{{bill_subtitle}}}</em></a></h5>
+      <h5><a href="#top"><span class="bill-bold">{{{bill_number}}}:</span> {{{bill_subtitle}}}</a></h5>
             <p><em>{{{movement}}}</em></p>
             {{#if date}}<p><em>{{{date}}}</em></p>{{/if}}
             <p>{{{bill_description}}}</p>
@@ -233,7 +233,7 @@
                     <div class="col-5"
                          style="text-align:center">
                         <span class="nobr">2019&ndash;2020</span> Score<br> <span class="score"
-                                                                                  style="background-color: {{ scoreColor }}; {{#if_eq scoreColor '#F00604'}}less{{/if_eq}}">{{{Score}}}</span>
+                                                                                  style="background-color: {{ scoreColor }};">{{{Score}}}</span>
                     </div>
                     <div class="col-5"
                          style="text-align:center">
@@ -246,33 +246,33 @@
                 <ul class="fa-ul">
                     <li>{{#if_eq [HB 732] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                         {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                        <a href="#bookmark_732">HB 732: Establishes a petrochemical tax credit</a></li>
+                        <a href="#bookmark_732"><span class="bill-bold">HB 732:</span> Establishes a petrochemical tax credit</a></li>
 
                     <li>{{#if_eq [A 6683] "Yea"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                         {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                        <a href="#bookmark_Amendment06683">HB 732, Amendment 06683: Establishes a petrochemical tax credit (Requires environmental impact study)</a></li>
+                        <a href="#bookmark_Amendment06683"><span class="bill-bold">HB 732, Amendment 06683:</span> Establishes a petrochemical tax credit (Requires environmental impact study)</a></li>
                     <li>{{#if_eq [A 6687] "Yea"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                         {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                        <a href="#bookmark_Amendment06687">HB 732, Amendment 06687: Establishes a petrochemical tax credit (Requires greenhouse gas emissions plan)</a></li>
+                        <a href="#bookmark_Amendment06687"><span class="bill-bold">HB 732, Amendment 06687:</span> Establishes a petrochemical tax credit (Requires greenhouse gas emissions plan)</a></li>
                     <li>{{#if_eq [HB 1100] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                         {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                        <a href="#bookmark_1100">HB 1100: Subsidies for petrochemical plants</a></li>
+                        <a href="#bookmark_1100"><span class="bill-bold">HB 1100:</span> Subsidies for petrochemical plants</a></li>
 
                     <li>{{#if_eq [SB 327 Conc] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                         {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                        <a href="#bookmark_ConcurrenceVote">SB 327, Concurrence Vote: Stops new environmental regulations during COVID-19 </a></li>
+                        <a href="#bookmark_ConcurrenceVote"><span class="bill-bold">SB 327, Concurrence Vote:</span> Stops new environmental regulations during COVID-19 </a></li>
 
                     <li>{{#if_eq [SB 398] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                         {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                        <a href="#bookmark_398">SB 398: Stops agencies from explaining regulations</a></li>
+                        <a href="#bookmark_398"><span class="bill-bold">SB 398:</span> Stops agencies from explaining regulations</a></li>
 
                     <li>{{#if_eq [SB 619] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                         {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                        <a href="#bookmark_619">SB 619: Changes definition of “pollution”</a></li>
+                        <a href="#bookmark_619"><span class="bill-bold">SB 619:</span> Changes definition of “pollution”</a></li>
 
                     <li>{{#if_eq [SB 790] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
                         {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
-                        <a href="#bookmark_790">SB 790: Rolls back oil and gas protections</a></li>
+                        <a href="#bookmark_790"><span class="bill-bold">SB 790:</span> Rolls back oil and gas protections</a></li>
                 </ul>
             </div>
         </div>
