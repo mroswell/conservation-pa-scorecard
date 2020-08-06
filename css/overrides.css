@@ -307,3 +307,9 @@ span.nobr { white-space: nowrap; }
 .pdflink {
   color: #075A0A !important;
 }
+.at-form-submit .at-submit {
+  float: left !important;
+}
+.modal-backdrop.show {
+  opacity: .7 !important;
+}
