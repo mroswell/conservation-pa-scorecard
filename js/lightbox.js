@@ -2,6 +2,7 @@ window.jQuery(function($) {
 	var COOKIE_DATA = 'cvpa_scorecard_2020_email_opt_in_dismissed=true';
 	var $emailOptIn = $('#email-opt-in');
 	if (document.cookie.indexOf(COOKIE_DATA) !== -1) return;
+	document.cookie = COOKIE_DATA;
 
 	var myPostRender = function(args) {
 
@@ -21,7 +22,5 @@ window.jQuery(function($) {
 	cb.postRender = cb.postRender || [];
 	cb.postRender.push(myPostRender);
 
-	$emailOptIn.on('hide.bs.modal', function() {
-		document.cookie = COOKIE_DATA;
-	}).modal('show');
+	$emailOptIn.modal('show');
 });
