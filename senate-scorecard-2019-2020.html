@@ -243,33 +243,33 @@
       </div>
       <div>
         <ul class="fa-ul">
-          <li>{{#if_eq [HB 732] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
-            {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+          <li>{{#if_eq [HB 732] "Nay"}}<i class="fa-li fas fa-leaf fa-2x"></i>
+            {{else}}<i class="fa-li fas fa-exclamation-triangle fa-2x"></i>{{/if_eq}}
                         <a href="#bookmark_732"><span class="bill-bold">HB 732:</span> Establishes a petrochemical tax credit</a></li>
-          <li>{{#if_eq [A 6683] "Yea"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
-            {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+          <li>{{#if_eq [A 6683] "Yea"}}<i class="fa-li fas fa-leaf fa-2x"></i>
+            {{else}}<i class="fa-li fas fa-exclamation-triangle fa-2x"></i>{{/if_eq}}
                         <a href="#bookmark_Amendment06683"><span class="bill-bold">HB 732, Amendment 06683:</span> Establishes a petrochemical tax credit (Requires environmental impact study)</a></li>
-          <li>{{#if_eq [A 6687] "Yea"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
-            {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+          <li>{{#if_eq [A 6687] "Yea"}}<i class="fa-li fas fa-leaf fa-2x"></i>
+            {{else}}<i class="fa-li fas fa-exclamation-triangle fa-2x"></i>{{/if_eq}}
                         <a href="#bookmark_Amendment06687"><span class="bill-bold">HB 732, Amendment 06687:</span> Establishes a petrochemical tax credit (Requires greenhouse gas emissions plan)</a></li>
-          <li>{{#if_eq [HB 1100] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
-            {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+          <li>{{#if_eq [HB 1100] "Nay"}}<i class="fa-li fas fa-leaf fa-2x"></i>
+            {{else}}<i class="fa-li fas fa-exclamation-triangle fa-2x"></i>{{/if_eq}}
                         <a href="#bookmark_1100"><span class="bill-bold">HB 1100:</span> Subsidies for petrochemical plants</a></li>
 
-          <li>{{#if_eq [SB 327 Conc] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
-            {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+          <li>{{#if_eq [SB 327 Conc] "Nay"}}<i class="fa-li fas fa-leaf fa-2x"></i>
+            {{else}}<i class="fa-li fas fa-exclamation-triangle fa-2x"></i>{{/if_eq}}
                         <a href="#bookmark_ConcurrenceVote"><span class="bill-bold">SB 327, Concurrence Vote:</span> Stops new environmental regulations during COVID-19 </a></li>
 
-          <li>{{#if_eq [SB 398] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
-            {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+          <li>{{#if_eq [SB 398] "Nay"}}<i class="fa-li fas fa-leaf fa-2x"></i>
+            {{else}}<i class="fa-li fas fa-exclamation-triangle fa-2x"></i>{{/if_eq}}
                         <a href="#bookmark_398"><span class="bill-bold">SB 398:</span> Stops agencies from explaining regulations</a></li>
 
-          <li>{{#if_eq [SB 619] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
-            {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+          <li>{{#if_eq [SB 619] "Nay"}}<i class="fa-li fas fa-leaf fa-2x"></i>
+            {{else}}<i class="fa-li fas fa-exclamation-triangle fa-2x"></i>{{/if_eq}}
                         <a href="#bookmark_619"><span class="bill-bold">SB 619:</span> Changes definition of “pollution”</a></li>
 
-          <li>{{#if_eq [SB 790] "Nay"}}<i class="fa-li fas fa-thumbs-up fa-2x"></i>
-            {{else}}<i class="fa-li fas fa-thumbs-down fa-2x"></i>{{/if_eq}}
+          <li>{{#if_eq [SB 790] "Nay"}}<i class="fa-li fas fa-leaf fa-2x"></i>
+            {{else}}<i class="fa-li fas fa-exclamation-triangle fa-2x"></i>{{/if_eq}}
                         <a href="#bookmark_790"><span class="bill-bold">SB 790:</span> Rolls back oil and gas protections</a></li>
         </ul>
       </div>
@@ -288,7 +288,7 @@
         } else if (a === "A") {
             return '<span class="circle">&nbsp;&nbsp;Abstained&nbsp;&nbsp;</span>'
         } else if (a === "X") {
-            return '<i class="fas fa-thumbs-down fa-2x"></i> <span class="circle">&nbsp;&nbsp;Unexcused Absence&nbsp;&nbsp;</span>'
+            return '<i class="fas fa-exclamation-triangle fa-2x"></i> <span class="circle">&nbsp;&nbsp;Unexcused Absence&nbsp;&nbsp;</span>'
         } else if (a === "E") {
             return '<span class="circle">&nbsp;&nbsp;Excused Absence&nbsp;&nbsp;</span>&nbsp;'
         } else if (a === "-") {

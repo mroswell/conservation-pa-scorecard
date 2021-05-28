@@ -128,14 +128,20 @@ h2, h4, h5 {
     margin-top: -.25em;
     /*left: 30px !important;*/
 }
-i.fas.fa-thumbs-up.fa-2x, i.fas.fa-thumbs-down.fa-2x{
-    font-size: 1.5em;
+i.fas.fa-leaf.fa-2x, i.fas.fa-exclamation-triangle.fa-2x{
+    font-size: 1.4em;
 }
-.fa-thumbs-up {
+.fa-leaf {
     color: #4EAB07; //#4EAB05; //#075A0A; //#82BC00; //#4EAB07;
 }
 .fa-minus-circle {
     color: #b0b0b0;
+}
+
+.fa-exclamation-triangle {
+    color: #ff0000;
+    /*line-height: 18px;*/
+    /*vertical-align: top;*/
 }
 
 .fa-file-pdf {
@@ -226,9 +232,9 @@ span > i {
     padding-right: 10px;
 }
 
-.fa-thumbs-down:before {
+.fa-exclamation-triangle:before {
     display: inline-block;
-    vertical-align: sub;
+    vertical-align: middle;
     font-weight: 900;
     color: #E53935; /* #E03131; /* red #C40015 */
 }
