@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Conservation PA | Pennsylvania Environmental Scorecard 2021-2022</title>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://scorecard.conservationpa.org">
+    <meta property="og:description" content="The Pennsylvania Environmental Scorecard is a joint project of Conservation Voters of PA, PennEnvironment, Sierra Club Pennsylvania Chapter, and Clean Water Action. The scorecard features crucial environmental votes that have taken place in the Pennsylvania General Assembly during the current session.">
+  <meta property="og:title" content="Conservation PA | Legislative Scorecard 2021&ndash;2022">
+  <meta property="og:image" content="https://scorecard.conservationpa.org/images/ConservationPA_Social_Post.jpg">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1080">
+  <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Nunito+Sans|Roboto+Condensed|Roboto:400,700,900&display=swap"
+        rel="stylesheet">
+  <link rel="shortcut icon"
+        href="https://conservationpa.org/themes/lcv/favicon.ico"
+        type="image/vnd.microsoft.icon">
+  <link rel="stylesheet"
+        href="css/senate-style-2019.css">
+  <link rel="stylesheet"
+        href="css/style.css?16">
+  <link rel="stylesheet"
+        href="css/overrides.css?5">
+  <link rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        crossorigin=""/>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="./js/vendor/leaflet.js"
+          crossorigin=""></script>
+  <script src="https://kit.fontawesome.com/4bb3fdd9b8.js" crossorigin="anonymous"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.7/handlebars.js"
+          integrity="sha256-3kxM38zABJY692X6ViIlt9FsBimhck0ZlsLtuA7R+0Y="
+          crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="scorecard-header">
+  <section class="header-container">
+    <a class="scorecard-branding"
+       href="https://conservationpa.org"
+       title="Conservation Voters of Pennsylvania"
+       rel="home">
+      <img src="images/conservationpa-logo.svg"
+           alt="Conservation Voters of Pennsylvania">
+    </a>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/conservationvoterspa/"
+         target="_blank"><i class="fab fa-instagram-square fa-2x"></i></a>
+      <a href="https://twitter.com/intent/tweet?text=I%20just%20checked%20my%20state%20legislators%27%20environmental%20scores%20on%20the%20Pennsylvania%20Environmental%20Scorecard%21%20Find%20out%20how%20your%20legislators%20match%20up%20with%20your%20environmental%20values%3A
+&url=https%3A%2F%2Fscorecard.conservationpa.org%2F"
+         target="_blank">
+        <i class="fab fa-twitter-square fa-2x"></i></a>
+      <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fscorecard.conservationpa.org&amp;t=Pennsylvania%20Environmental%20Scorecard"
+         target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
+    </div>
+    <h2>Pennsylvania Environmental Scorecard 2021-2022</h2>
+  </section>
+</header>
+<div class="feature-wrapper pt-5 pb-5 mt-5 mt-lg-0">
+  <!-- wides go inside wrapper but outside outer and inner -->
+  <div class="container"
+       id="top">
+    <div class="row mt-2 mb-2 navigation-buttons">
+      <div>
+        <ul class="nav nav-pills ">
+          <a style="background-color: #085A0A;"
+             class="text-sm-center nav-link active"
+             href="#">Senate</a> &nbsp; &nbsp;
+          <a style="background-color: white; color: #0c0b3e; "
+             class="text-sm-center nav-link active"
+             href="house-scorecard-2021-2022.html">House</a>
+        </ul>
+      </div>
+    </div>
+    <div class="row"
+         id="sidebar-and-map">
+      <div id="sidebar"
+           class="default-text"></div>
+      <div id="map-and-legend">
+        <div>
+          <button id="buttonState"
+                  type="button"
+                  class="btn btn-outline-primary">Pennsylvania
+          </button>
+          <button id="buttonPittsburgh"
+                  type="button"
+                  class="btn btn-outline-primary">Pittsburgh
+          </button>
+          <button id="buttonPhiladelphia"
+                  type="button"
+                  class="btn btn-outline-primary">Philadelphia
+          </button>
+          <button id="buttonAllentown"
+                  type="button"
+                  class="btn btn-outline-primary">Allentown/Hazelton/Scranton
+          </button>
+        </div>
+
+        <div id="scorecard-legend">
+          <ul class="legend-labels">
+            <li>Legend:</li>
+            <!--                        <li><span style="background:#fefefe; border: 2px solid #b0b0b0;"></span>No Score</li>-->
+            <li><span style="background:#F00604; border: 2px solid transparent;"></span>0%</li>
+            <li><span style="background:#FC8400; border: 2px solid transparent;"></span>1-24%</li>
+            <li><span style="background:#FDC300; border: 2px solid transparent;"></span>25-49%</li>
+            <li><span style="background:#FEF200; border: 2px solid transparent;"></span>50-74%</li>
+            <!--                        <li><span style="background:#BED802; border: 2px solid transparent;"></span>75-99%</li>-->
+            <li><span style="background:#A8CA03; border: 2px solid transparent;"></span>75-99%</li>
+            <!--                        <li><span style="background:#4EAB07; border: 2px solid transparent;"></span>100%</li>-->
+            <li><span style="background:#409B06; border: 2px solid transparent;"></span>100%</li>
+          </ul>
+        </div>
+
+        <div id="map"></div>
+      </div>
+    </div>
+    <div class="row"
+         id="lower-content">
+      <div class="about_us"><h4>Our Scorecard Votes</h4></div>
+      <div id="priorityVotes"></div>
+      <div class="about_us">
+        <h4>About Our Scorecard</h4>
+        <p>The Pennsylvania Environmental Scorecard rates each member of the State Senate and House on their environmental voting record using the most crucial environmental votes that the
+          Pennsylvania General Assembly took during the current legislative session. The Scorecard holds state legislators accountable for their votes on clean water, air pollution, climate change,
+          and environmental justice, and other environmental issues that affect all Pennsylvanians.</p>
+        <p>To compile these scores, our organizations worked with dozens of other environmental advocates, activists, and leaders to ensure that we are reviewing and scoring the most important and
+          highly watched environmental votes, and that we are educating legislators on the environmental impacts of the legislation in question. A lifetime score was also given for each legislator.
+          This score reflects their pro-environment voting record going back to the 2007-2008 legislative session. This adds greater context to each legislator’s position on environmental issues over
+          time.</p>
+        <p>We invite you to look up your lawmakers to see how they scored, and then ask them to do better in the next legislative session – or thank them if they’re one of our champs!</p>
+      </div>
+      <div id="logos">
+        <div class="logo-item logo-item-cvpa">
+          <a target="_blank"
+             href="https://www.conservationpa.org/">
+            <img class="img-fluid"
+                 src="images/cvpa_logo_vertical.png"
+                 alt="Conservation Voters of Pennsylvania logo"></a>
+        </div>
+        <div class="logo-item logo-item-sc"><a target="_blank"
+                                               href="https://www.sierraclub.org/pennsylvania"><img class="img-fluid"
+                                                                                                   src="images/sc_green.png"
+                                                                                                   alt="Sierra Club logo"></a></div>
+        <div class="logo-item logo-item-pe"><a target="_blank"
+                                               href="https://pennenvironment.org/"><img class="img-fluid"
+                                                                                        src="images/pe_logo.jpg"
+                                                                                        alt="PennEnvironment logo"></a></div>
+        <div class="logo-item logo-item-cwa"><a target="_blank"
+                                                href="https://www.cleanwateraction.org/states/pennsylvania"><img class="img-fluid"
+                                                                                                                 src="images/clean_water_action_logo.jpg"
+                                                                                                                 alt="Clean Water Action logo"></a></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<script type="text/javascript"
+        src="maps/cb_2019_pa_sldu_500k.js?5va15"></script>
+<script src="js/app-2021-senate-map-green.js?12"></script>
+
+<script id="welcome-map-help"
+        type="text/x-handlebars-template">
+  <div class="entry-default-text"
+       style="padding-top:14px; display:block;">
+    <div id=default-text
+         class="body">
+      <!--<p id='close2' class='close'>&times;</p><br>-->
+      <h4 style="text-align: center">Map Help</h4>
+      <ul>
+        <li><strong>Mouseover</strong> a district for vote details.</li>
+        <li><strong>Click a district</strong> to freeze the vote details panel.</li>
+        <li><strong>Click a bill number</strong> in the vote details panel to scroll down to see bill detail.</li>
+        <li><strong>Click any bill number</strong> in bill details to scroll back up.</li>
+        <li><strong>Click the 'x'</strong> (or <strong>press the 'Escape' key'</strong>) to dismiss the vote details panel and re-enable mouseover function.</li>
+        <li><strong>Zoom</strong> into selected district to see street detail.</li>
+        <li><strong>Access the <a target="_blank" class="pdflink" href="http://scorecard.conservationpa.org/PA-Environmental-Scorecard-2021-2022.pdf"><i class="fas fa-file-pdf fa-2x"></i> PDF version</a></strong> of this scorecard.</li>
+        <li>Check out our <strong><a target="_self" class="pdflink" href="https://www.conservationpa.org/scorecard/library">previous scorecards here</a></strong>.</li>
+      </ul>
+
+    </div>
+  </div>
+</script>
+<script id="senate-template-bottom"
+        type="text/x-handlebars-template">
+  {{#each priority_votes}}
+  <div class="entry priority_vote"
+       id="bookmark_{{bill_bookmark bill_number}}">
+    <div class="body">
+      <h5><a href="#top"><span class="bill-bold">{{{bill_number}}}:</span> {{{bill_subtitle}}}</a></h5>
+      <p><em>{{{movement}}}</em></p>
+      {{#if bill_date}}<p><em>{{{bill_date}}}</em></p>{{/if}}
+      <p>{{{bill_description}}}</p>
+      <p><em>The Pro-Environment vote is &ldquo;{{{stance}}}.&rdquo;</em></p>
+            {{#if status}}<p><em>{{{status}}}</em></p>{{/if}}
+    </div>
+  </div>
+  {{/each}}
+</script>
+
+<script id="senate-template-infobox"
+        type="text/x-handlebars-template">
+  <div class="entry parent"
+       style="background-color: {{ scoreColor }}; z-index:100; height:1200px">
+    <button type='button'
+            id='close'
+            class='close'>&times;
+    </button>
+    <div class="infobox child">
+      <div class="child-header"
+           style="width: 99%; display:flex; justify-content:space-evenly; align-items:center; text-align:right">
+        <div style="width:50%;"><img src="{{{photo}}}"
+                                     class="img-fluid justify-content-center"
+                                     alt="Legislator Photo"></div>
+        <div style="width:50%; text-align:left; margin-left:16px;">{{{full_name}}} ({{{ abbrev Party}}})
+          <br/>District {{{District}}}
+          <br/> <span style="font:normal 12pt 'Roboto Condensed'">{{#if capitol_voice}}Capitol: {{capitol_voice}}{{/if}}
+                <br/>{{#if district_voice }}District: {{district_voice}}{{/if}}</span></div>
+        <br/>
+
+      </div>
+      <div class="container votes">
+        <div class="row justify-content-center mb-3 mt-2">
+          <div class="col-5"
+               style="text-align:center">
+            <span class="nobr">2021&ndash;2022</span> Score<br> <span class="score"
+                                                                                  style="background-color: {{ scoreColor }};">{{displayScore score_num}}%</span>
+          </div>
+          <div class="col-5"
+               style="text-align:center">
+            Lifetime Score<br><span class="score"
+                                    style="background-color: {{ lifetimeScoreColor }}">{{{[lifetime_score]}}}%</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <ul class="fa-ul">
+          <li>{{#if_eq [SB 533] "NAY"}}<i class="fa-li fas fa-leaf fa-2x"></i>
+            {{else}}<i class="fa-li fas fa-exclamation-triangle fa-2x"></i>{{/if_eq}}
+                        <a href="#bookmark_533"><span class="bill-bold">SB 533:</span> Regulatory Interference (State Agency/Regulatory Action During a Disaster Emergency)</a></li>
+          <li>{{#if_eq [SB 520] "NAY"}}<i class="fa-li fas fa-leaf fa-2x"></i>
+            {{else}}<i class="fa-li fas fa-exclamation-triangle fa-2x"></i>{{/if_eq}}
+                        <a href="#bookmark_520"><span class="bill-bold">SB 520:</span> Regulatory Interference (Legislative Approval of Economically Significant Regulations)</a></li>
+          <li>{{#if_eq [SB 126] "NAY"}}<i class="fa-li fas fa-leaf fa-2x"></i>
+            {{else}}<i class="fa-li fas fa-exclamation-triangle fa-2x"></i>{{/if_eq}}
+                        <a href="#bookmark_126"><span class="bill-bold">SB 126:</span> Regulatory Interference (Automatic Three-Year Review of Economically Significant Regulations)</a></li>
+          <li>{{#if_eq [SB 28] "NAY"}}<i class="fa-li fas fa-leaf fa-2x"></i>
+            {{else}}<i class="fa-li fas fa-exclamation-triangle fa-2x"></i>{{/if_eq}}
+                        <a href="#bookmark_28"><span class="bill-bold">SB 28:</span> Regulatory Interference (Transparency in Permitting)</a></li>
+
+          <li>{{#if_eq [SB 106] "NAY"}}<i class="fa-li fas fa-leaf fa-2x"></i>
+            {{else}}<i class="fa-li fas fa-exclamation-triangle fa-2x"></i>{{/if_eq}}
+                        <a href="#bookmark_106"><span class="bill-bold">SB 106:</span> Constitutional Amendments (Election Audits, Voter ID, Restricting power of the executive branch)</a></li>
+
+          <li>{{#if_eq [SB 597] "NAY"}}<i class="fa-li fas fa-leaf fa-2x"></i>
+            {{else}}<i class="fa-li fas fa-exclamation-triangle fa-2x"></i>{{/if_eq}}
+                        <a href="#bookmark_597"><span class="bill-bold">SB 597:</span> Water Privatization</a></li>
+
+          <li>{{#if_eq [SB 275] "NAY"}}<i class="fa-li fas fa-leaf fa-2x"></i>
+            {{else}}<i class="fa-li fas fa-exclamation-triangle fa-2x"></i>{{/if_eq}}
+                        <a href="#bookmark_275"><span class="bill-bold">SB 275:</span> Energy Choice (Ban on banning gas in municipal buildings)</a></li>
+
+          <li>{{#if_eq [SB 522] "AYE"}}<i class="fa-li fas fa-leaf fa-2x"></i>
+            {{else}}<i class="fa-li fas fa-exclamation-triangle fa-2x"></i>{{/if_eq}}
+                        <a href="#bookmark_522"><span class="bill-bold">SB 522:</span> Universal Lead Testing for Children</a></li>
+
+          <li>{{#if_eq [HB 2644] "NAY"}}<i class="fa-li fas fa-leaf fa-2x"></i>
+          {{else}}<i class="fa-li fas fa-exclamation-triangle fa-2x"></i>{{/if_eq}}
+            <a href="#bookmark_2644"><span class="bill-bold">HB 2644:</span> Conventional Oil and Gas Well Plugging (Placing the financial burden of well plugging on the taxpayer)</a></li>
+
+          <li>{{#if_eq [SCRRR 1] "NAY"}}<i class="fa-li fas fa-leaf fa-2x"></i>
+          {{else}}<i class="fa-li fas fa-exclamation-triangle fa-2x"></i>{{/if_eq}}
+            <a href="#bookmark_1"><span class="bill-bold">SCRRR-1:</span> Regional Greenhouse Gas Initiative Senate Disapproval Resolution</a></li>
+
+          <li>{{#if_eq [SB 119] "NAY"}}<i class="fa-li fas fa-leaf fa-2x"></i>
+          {{else}}<i class="fa-li fas fa-exclamation-triangle fa-2x"></i>{{/if_eq}}
+            <a href="#bookmark_119"><span class="bill-bold">SB 119:</span> Prevents Pennsylvania From Addressing Climate Change</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</script>
+<script>
+    Handlebars.registerHelper('if_eq', function (a, b, opts) {
+        if (typeof a !== "undefined") {
+            if (typeof a === "string") {
+                a = a.trim();
+            }
+        }
+        if (a === b) {
+            return opts.fn(this);
+        } else if (a === "A") {
+            return '<span class="circle">&nbsp;&nbsp;Abstained&nbsp;&nbsp;</span>'
+        } else if (a === "X") {
+            return '<i class="fas fa-exclamation-triangle fa-2x"></i> <span class="circle">&nbsp;&nbsp;Unexcused Absence&nbsp;&nbsp;</span>'
+        } else if (a === "E") {
+            return '<span class="circle">&nbsp;&nbsp;Excused Absence&nbsp;&nbsp;</span>&nbsp;'
+        } else if (a === "-") {
+            return '<span class="circle wide105">&nbsp;&nbsp;Not in Office&nbsp;&nbsp;</span>'
+        } else {
+            return opts.inverse(this);
+        }
+    });
+
+    Handlebars.registerHelper('abbrev', function (aString) {
+        return aString.charAt(0);
+    });
+
+    Handlebars.registerHelper('bill_bookmark', function (bill) {
+        let wc = bill.split(" ");
+        let word_count = wc.length;
+        if (word_count < 3) {
+            let bookmark_text = wc[word_count - 1];
+            return bookmark_text;
+        } else {
+            let bookmark_text = wc[word_count - 2]+wc[word_count - 1];
+            bookmark_text = bookmark_text.replace(',','');
+            return bookmark_text;
+        }
+    });
+
+    Handlebars.registerHelper('displayScore', function (score) {
+        return Math.round(score);
+    });
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async
+        src="https://www.googletagmanager.com/gtag/js?id=UA-113166990-3"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-113166990-3');
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+</body>
+</html>
