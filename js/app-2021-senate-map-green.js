@@ -202,12 +202,7 @@ function showInfo(results) {
 
     $.each(data, function(i, member) {
         scoreColor = getColor(parseInt(member.score_num));
-        console.log(scoreColor);
         member['scoreColor'] = scoreColor;
-        console.log("i", i+1)
-        console.log("member",member);
-        console.log("memberi",member[i+1])
-
         lifetimeScoreColor = getColor(parseInt(member.lifetime_score));
         console.log(lifetimeScoreColor)
         member['lifetimeScoreColor'] = lifetimeScoreColor;
@@ -216,24 +211,36 @@ function showInfo(results) {
        }
     });
 
-    console.log("after",data);
-
     loadGeo();
 
-function loadGeo() {
-    let tileLayer = L.tileLayer(
-        "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
-        {
+    function loadGeo() {
+
+
+
+        // let tileLayeryer =
+        //     L.tileLayer(
+        //     "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibXJvc3dlbGwiLCJhIjoiY2twZDN6eTB0MWJ4eDJxcGd5OG0yN2xtNCJ9.tUHOVBolz3YsZRQJOQRETg",
+        //     {
+        //         maxZoom: 18,
+        //         minZoom: 7,
+        //         attribution:
+        //             'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+        //             '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        //             'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        //         id: "mapbox.light"
+        //     }
+        // );
+        // tileLayer.addTo(map);
+           let tileLayer = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
+            {
+            attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
+            tileSize: 512,
             maxZoom: 18,
-            minZoom: 7,
-            attribution:
-                'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            id: "mapbox.light"
-        }
-    );
-    tileLayer.addTo(map);
+            zoomOffset: -1,
+            id: 'mapbox/light-v10',
+            accessToken: 'pk.eyJ1IjoibXJvc3dlbGwiLCJhIjoiY2twZDN6eTB0MWJ4eDJxcGd5OG0yN2xtNCJ9.tUHOVBolz3YsZRQJOQRETg'
+        }).addTo(map);
+
 
     PAboundaryLayer = L.geoJson(pa_state_senate_boundary_map, {
         onEachFeature: onEachFeature,
@@ -255,9 +262,6 @@ function loadGeo() {
 
 let geoStyle = function(data) {
     let legisId = data.properties.NAME;
-    console.log("legid",legisId)
-    console.log(PADistricts)
-    console.log(PADistricts[legisId])
     let scoreColor = getColor(parseInt(PADistricts[legisId].score_num));
 
     return {
