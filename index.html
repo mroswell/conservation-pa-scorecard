@@ -30,6 +30,8 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="css/lightbox.css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="./js/vendor/leaflet.js"
             crossorigin=""></script>
@@ -38,6 +40,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.7/handlebars.js"
             integrity="sha256-3kxM38zABJY692X6ViIlt9FsBimhck0ZlsLtuA7R+0Y="
             crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="js/lightbox.js"></script>
 </head>
 <body>
 <header class="scorecard-header">
@@ -154,7 +160,28 @@
     </div>
 
 </div><!-- /container -->
-
+<section id="email-opt-in" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title modal-title--custom">SIGN UP TO RECEIVE UPDATES!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="ngp-form lightbox-form"
+                     data-form-url="https://actions.everyaction.com/v2/Forms/xohEz5EpJUOIJV5cPdbI0Q2"
+                     data-fastaction-endpoint="https://fastaction.ngpvan.com"
+                     data-inline-errors="true"
+                     data-fastaction-nologin="false"
+                     data-databag-endpoint="https://profile.ngpvan.com"
+                     data-databag="everybody"
+                     data-labels="inline"></div>
+            </div>
+        </div>
+    </div>
+</section>
 <script type="text/javascript"
         src="maps/cb_2019_pa_sldu_500k.js?5va15"></script>
 <script src="js/app-2021-senate-map-green.js?12"></script>
@@ -341,5 +368,6 @@
 </script>
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+<script async src="https://d1aqhv4sn5kxtx.cloudfront.net/actiontag/at.js"></script>
 </body>
 </html>
