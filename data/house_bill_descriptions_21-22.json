@@ -86,7 +86,7 @@
       "stance": "NO",
       "bill_subtitle": "Clean Streams Legislation (Give polluters discretion over reporting spills)",
       "status": "Passed in the House (108-95), Awaiting action in the Senate",
-      "bill_date": "2021-12-14T05:00:00.000Z",
+      "bill_date": "2021-12-14",
       "movement": "Final Passage",
       "bill_description": "Weakens the Clean Streams Law by allowing polluters to decide which spills into our waterways should be reported to the Department of Environmental Protection. This means that some spills could go unreported if the polluter responsible deems them negligible."
     },
@@ -96,7 +96,7 @@
       "stance": "NO",
       "bill_subtitle": "Energy Choice (Ban on banning gas in municipal buildings)",
       "status": "Passed in the House, Awaiting action in the Senate",
-      "bill_date": "2022-01-26T05:00:00.000Z",
+      "bill_date": "2022-01-26",
       "movement": "Final Passage",
       "bill_description": "Takes away communities' ability to incentivize the use of renewable energy or limit fossil fuel use in residential and commercial buildings."
     },
@@ -186,7 +186,7 @@
       "stance": "NO",
       "bill_subtitle": "Regional Greenhouse Gas Initiative Senate Disapproval Resolution",
       "status": "Vetoed by the Governor",
-      "bill_date": "2022-01-10T05:00:00.000Z",
+      "bill_date": "2022-01-10",
       "movement": "Final Passage",
       "bill_description": "A Senate resolution to override the Governor’s action to combat climate change and prevent Pennsylvania’s ability to join the Regional Greenhouse Gas Initiative."
     }
