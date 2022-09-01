@@ -171,6 +171,11 @@ button.btn {font-size: x-small;}
   .logo-item-cvpa {
     width:30%;
   }
+  .logo-item-caa {
+    width:40%;
+    margin-left:10px
+  }
+
   .logo-item-sc {
     /*display: inline-grid;*/
     width: 20%;
@@ -197,6 +202,12 @@ button.btn {font-size: x-small;}
   .logo-item-cvpa {
     width:26%;
   }
+
+  .logo-item-caa {
+    width:25%;
+    margin-left:10px
+  }
+
   .logo-item-sc {
     width: 16%;
   }
@@ -245,6 +256,10 @@ button.btn {font-size: x-small;}
     width: 13%;
   }
 
+  .logo-item-caa {
+    width: 23%;
+  }
+
   #logo-item a {
     display:block;
     width:86%;
@@ -272,8 +287,9 @@ button.btn {font-size: x-small;}
   .logo-item-sc {
     width: 9%;
   }
-  .logo-item-pe {
-    width:22%;
+  .logo-item-caa {
+    width:20%;
+    margin-left:10px
   }
   .logo-item-cwa {
     width: 20%;

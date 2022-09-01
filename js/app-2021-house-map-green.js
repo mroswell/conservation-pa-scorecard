@@ -8,127 +8,177 @@ let $sidebar = $("#sidebar");
 let clickedMemberNumber;
 
 let vote_context =  {"priority_votes": [
-    {
-            "bill_number": "SB 533",
-            "match?": null,
-            "include": null,
+        {
+            "bill_number": "HB 1144",
             "stance": "NO",
-            "bill_subtitle": "Regulatory Interference (State Agency/Regulatory Action During a Disaster Emergency)",
-            "status": "Passed in the Senate (29-21), Awaiting action in the House",
-            "bill_date": "2021-06-15",
+            "bill_subtitle": "Conventional Oil and Gas Act",
+            "status": "Passed in the House (113-88), Awaiting action in the Senate",
+            "bill_date": "2021-05-25T04:00:00.000Z",
             "movement": "Final Passage",
-            "bill_description": "Halts regulatory processes during emergency declarations, preventing regulators from addressing pressing health and environmental needs."
-        },
- {
-            "bill_number": "SB 520",
-            "match?": null,
-            "include": null,
-            "stance": "NO",
-            "bill_subtitle": "Regulatory Interference (Legislative Approval of Economically Significant Regulations)",
-            "status": "Passed in the Senate (27-21), Awaiting action in the House",
-            "bill_date": "2021-05-26",
-            "movement": "Final Passage",
-            "bill_description": "Requires the General Assembly to pass a concurrent resolution to approve any final-form rulemaking deemed “economically significant.”"
-        },
-         {
-            "bill_number": "SB 126",
-            "match?": null,
-            "include": null,
-            "stance": "NO",
-            "bill_subtitle": "Regulatory Interference (Automatic Three-Year Review of Economically Significant Regulations)",
-            "status": "Passed in the Senate (27-21), Awaiting action in the House",
-            "bill_date": "2021-05-26",
-            "movement": "Final Passage",
-            "bill_description": "Requires agencies to review “economically significant” regulations, giving greater consideration to the economic impact and concerns of the regulated community instead of how a regulation will improve our environment and health."
+            "bill_description": "Drastically weakens existing regulations for the conventional oil and gas industry, threatening water quality and public health."
         },
         {
-            "bill_number": "SB 28",
-            "match?": null,
-            "include": null,
+            "bill_number": "HB 72",
             "stance": "NO",
-            "bill_subtitle": "Regulatory Interference (Transparency in Permitting)",
-            "status": "Passed in the Senate (28-20), Awaiting action in the House",
-            "bill_date": "2021-05-26",
+            "bill_subtitle": "Reins Act",
+            "status": "Passed in the House (108-93), Awaiting action in the Senate",
+            "bill_date": "2021-05-04T04:00:00.000Z",
             "movement": "Final Passage",
-            "bill_description": "Requires agencies to report permitting review performance to the General Assembly. Forces agencies to allow private companies to make permitting decisions without clear oversight."
+            "bill_description": "Allows the General Assembly to halt the regulatory process and limit protections for the environment and human health by doing nothing. If they fail to pass a concurrent resolution approving a regulation, the regulation dies."
         },
         {
-            "bill_number": "SB 106",
-            "match?": null,
-            "include": null,
+            "bill_number": "HB 139",
             "stance": "NO",
-            "bill_subtitle": "Constitutional Amendments (Election Audits, Voter ID, Restricting power of the executive branch)",
-            "status": "Passed into Pamphlet  Laws Resolution 1",
-            "bill_date": "2022-07-11",
+            "bill_subtitle": "Reform Permit Transparency",
+            "status": "Passed in the House (113-88), Awaiting action in the Senate",
+            "bill_date": "2021-05-04T04:00:00.000Z",
             "movement": "Final Passage",
-            "bill_description": "Creates restrictive voter ID requirements, disrupts the balance of power between the branches of government by allowing the legislative branch to circumvent the executive branch and veto regulations, and limits the length of executive orders from the Governor."
+            "bill_description": "Forces agencies to allow third parties to review permits without clear oversight or regard for conflicts of interest. This would lead to increased and costly delays in the permitting process, thus keeping agencies like the Department of Environmental Protection from their duty of protecting our communities."
         },
         {
-            "bill_number": "SB 597",
-            "match?": null,
-            "include": null,
+            "bill_number": "HB 288",
             "stance": "NO",
-            "bill_subtitle": "Water Privatization",
-            "status": "Passed in the Senate (27-33), Awaiting action in the House",
-            "bill_date": "2022-06-07",
+            "bill_subtitle": "Regulatory Compliance Advisor",
+            "status": "Passed in the House (106-95), Awaiting action in the Senate",
+            "bill_date": "2021-05-04T04:00:00.000Z",
             "movement": "Final Passage",
-            "bill_description": "Stifles the voices of ratepayers, especially those in low income communities and\ncommunities of color, by putting burdensome requirements on public water systems\nwith no financial support - leaving some public water systems open to privatization."
+            "bill_description": "Creates a “regulatory compliance officer” to arbitrarily establish policies for waiving fines or penalties for industry violations. Prevents enforcement of environmental regulations and shields polluters from being held accountable."
         },
         {
-            "bill_number": "SB 275",
-            "match?": null,
-            "include": null,
+            "bill_number": "HB 950",
+            "stance": "NO",
+            "bill_subtitle": "Upending the Regulatory Review Act",
+            "status": "Passed in the House",
+            "bill_date": "2021-05-04T04:00:00.000Z",
+            "movement": "Final Passage",
+            "bill_description": "Disrupts and politicizes the regulatory process that protects environmental and public health by allowing the General Assembly to disapprove existing regulations via concurrent resolution."
+        },
+        {
+            "bill_number": "HB 939",
+            "stance": "NO",
+            "bill_subtitle": "Independent Office of the Repealer",
+            "status": "Passed in the House (111-90), Awaiting action in the Senate",
+            "bill_date": "2021-05-24T04:00:00.000Z",
+            "movement": "Final Passage",
+            "bill_description": "Requires agencies to repeal two existing regulations any time a new regulation is approved. It also establishes a redundant ‘Independent’ Office of the Repealer that is actually governed by a politically appointed committee."
+        },
+        {
+            "bill_number": "HB 754",
+            "stance": "NO",
+            "bill_subtitle": "Bottled Water Inspection",
+            "status": "Passed in the House (120-81), Awaiting action in the Senate",
+            "bill_date": "2021-04-06T04:00:00.000Z",
+            "movement": "Final Passage",
+            "bill_description": "Amends the PA Safe Drinking Water Act to remove bottled water from being categorized as public drinking water systems, which would mean that water bottling companies would be exempt from the higher quality standards created by the Department of Environmental Protection to fill in gaps left by the FDA’s standard rules."
+        },
+        {
+            "bill_number": "HB 755",
+            "stance": "NO",
+            "bill_subtitle": "Bottled Water Inspection",
+            "status": "Passed in the House (120-81), Awaiting action in the Senate",
+            "bill_date": "2021-04-06T04:00:00.000Z",
+            "movement": "Final Passage",
+            "bill_description": "Amends the Agriculture Code to move all oversight of the water bottling process under the jurisdiction of the Department of Agriculture, which would impose lower water quality standards than the Pennsylvania Department of Environmental Protection currently uses."
+        },
+        {
+            "bill_number": "HB 1842",
+            "stance": "NO",
+            "bill_subtitle": "Clean Streams Legislation (Give polluters discretion over reporting spills)",
+            "status": "Passed in the House (108-95), Awaiting action in the Senate",
+            "bill_date": "2021-12-14T05:00:00.000Z",
+            "movement": "Final Passage",
+            "bill_description": "Weakens the Clean Streams Law by allowing polluters to decide which spills into our waterways should be reported to the Department of Environmental Protection. This means that some spills could go unreported if the polluter responsible deems them negligible."
+        },
+        {
+            "bill_number": "HB 1947",
             "stance": "NO",
             "bill_subtitle": "Energy Choice (Ban on banning gas in municipal buildings)",
-            "status": "Passed in the Senate (35-15), Awaiting action in the House",
-            "bill_date": "2021-10-27",
+            "status": "Passed in the House, Awaiting action in the Senate",
+            "bill_date": "2022-01-26T05:00:00.000Z",
             "movement": "Final Passage",
             "bill_description": "Takes away communities' ability to incentivize the use of renewable energy or limit fossil fuel use in residential and commercial buildings."
         },
         {
-            "bill_number": "SB 522",
-            "match?": null,
-            "include": null,
-            "stance": "YES",
-            "bill_subtitle": "Universal Lead Testing for Children",
-            "status": "Passed in the Senate (49-0), Awaiting action in the House",
-            "bill_date": "2022-06-13",
+            "bill_number": "HB 604",
+            "stance": "NO",
+            "bill_subtitle": "DEP Permit Decision Making",
+            "status": "Passed in the House (115-85), Awaiting action in the Senate",
+            "bill_date": "2021-04-11T04:00:00.000Z",
             "movement": "Final Passage",
-            "bill_description": "Ensures testing for all children to more accurately identify childhood lead poisoning."
+            "bill_description": "Establishes an arbitrary 45 day limit for the Department of Environmental Protection to respond to a permit application. If they fail to respond, the application is automatically approved regardless of whether or not the project could be harmful to the environment."
+        },
+        {
+            "bill_number": "HB 637",
+            "stance": "NO",
+            "bill_subtitle": "Prevents Pennsylvania From Addressing Climate Change",
+            "status": "Passed in the House (126-72), Awaiting action in the Senate",
+            "bill_date": "2022-03-30T04:00:00.000Z",
+            "movement": "Final Passage",
+            "bill_description": "Halts climate action by requiring legislative approval for Pennsylvania to regulate carbon pollution or join the multi-state Regional Greenhouse Gas Initiative (RGGI)."
+        },
+        {
+            "bill_number": "HB 2450",
+            "stance": "NO",
+            "bill_subtitle": "Delaware River Basin Commission Voting Reform",
+            "status": "Passed in the House (116-84), Awaiting action in the Senate",
+            "bill_date": "2022-04-11T04:00:00.000Z",
+            "movement": "Final Passage",
+            "bill_description": "Changes the current one vote per state on the Delaware River Basin Commission to base the number of votes on the land area each state has within the watershed in an attempt to secure enough votes to override the ban on fracking within the watershed."
+        },
+        {
+            "bill_number": "HB 2451",
+            "stance": "NO",
+            "bill_subtitle": "Fracking in the Delaware River Basin",
+            "status": "Passed in the House (110-90), Awaiting action in the Senate",
+            "bill_date": "2022-04-11T04:00:00.000Z",
+            "movement": "Final Passage",
+            "bill_description": "Amends the Pennsylvania version of the Delaware River Basin Compact to overturn the ban on fracking within the watershed, which would threaten the health of the environment and communities along the Delaware River Basin."
+        },
+        {
+            "bill_number": "HB 2461",
+            "stance": "NO",
+            "bill_subtitle": "Drilling in State Parks and Forests",
+            "status": "Passed in the House (116-84), Awaiting action in the Senate",
+            "bill_date": "2022-04-11T04:00:00.000Z",
+            "movement": "Final Passage",
+            "bill_description": "Allows more state parks and state forests to be leased for gas development even though 65% of existing gas leases in state forests have not been developed, in order to blame the Governor's moratorium on new leases for lack of energy independence on the US rather than our reliance on fossil fuels."
+        },
+        {
+            "bill_number": "SB 106",
+            "stance": "NO",
+            "bill_subtitle": "Constitutional Amendments (Election Audits, Voter ID, Restricting power of the executive branch)",
+            "status": "Passed into Pamphlet  Laws Resolution 1",
+            "bill_date": "2022-07-11T04:00:00.000Z",
+            "movement": "Final Passage",
+            "bill_description": "Creates restrictive voter ID requirements, disrupts the balance of power between the branches of government by allowing the legislative branch to circumvent the executive branch and veto regulations, and limits the length of executive orders from the Governor."
         },
         {
             "bill_number": "HB 2644",
-            "match?": null,
-            "include": null,
             "stance": "NO",
             "bill_subtitle": "Conventional Oil and Gas Well Plugging (Placing the financial burden of well plugging on the taxpayer)",
             "status": "Became law without Governor's signature",
-            "bill_date": "2022-07-19",
+            "bill_date": "2022-07-19T04:00:00.000Z",
             "movement": "Passed as Law",
             "bill_description": "Leaves taxpayers on the hook for billions of dollars needed to plug abandoned wells and ensures more wells are abandoned by locking in woefully inadequate bond amounts."
         },
         {
-            "bill_number": "SCRRR1",
-            "match?": null,
-            "include": null,
+            "bill_number": "SB 275",
             "stance": "NO",
-            "bill_subtitle": "Regional Greenhouse Gas Initiative Senate Disapproval Resolution",
-            "status": "Motion to overide the Governor's veto defeated (32-17)",
-            "bill_date": "2022-04-04",
-            "movement": "Vetoed by the Governor and Governor's veto protected",
-            "bill_description": "A Senate resolution to override the Governor’s action to combat climate change and prevent Pennsylvania’s ability to join the Regional Greenhouse Gas Initiative."
+            "bill_subtitle": "Energy Choice (Ban on banning gas in municipal buildings)",
+            "status": "Vetoed by the Governor",
+            "bill_date": "2022-07-11T04:00:00.000Z",
+            "movement": "Final Passage",
+            "bill_description": "Takes away communities' ability to incentivize the use of renewable energy or limit fossil fuel use in residential and commercial buildings."
         },
         {
-            "bill_number": "SB 119",
-            "match?": null,
-            "include": null,
+            "bill_number": "SCRRR1",
             "stance": "NO",
-            "bill_subtitle": "Prevents Pennsylvania From Addressing Climate Change",
-            "status": "Passed in the Senate (35-15), Awaiting action in the House",
-            "bill_date": "2021-06-14",
+            "bill_subtitle": "Regional Greenhouse Gas Initiative Senate Disapproval Resolution",
+            "status": "Vetoed by the Governor",
+            "bill_date": "2022-01-10T05:00:00.000Z",
             "movement": "Final Passage",
-            "bill_description": "Halts climate action by requiring legislative approval for Pennsylvania to regulate carbon pollution or join RGGI."
-        },
+            "bill_description": "A Senate resolution to override the Governor’s action to combat climate change and prevent Pennsylvania’s ability to join the Regional Greenhouse Gas Initiative."
+        }
     ]
 };
 
@@ -156,7 +206,7 @@ function fetchSheet({ spreadsheetId, sheetName, apiKey, complete }) {
 }
 
 async function fetchMemberData() {
-    const response = await fetch("/data/senate_member_votes_21-22.json");
+    const response = await fetch("/data/house_member_votes_21-22.json");
     const json = await response.json();
     return json;
 }
@@ -178,9 +228,9 @@ function showInfo(results) {
     let lifetimeScoreColor;
 
     $.each(data, function(i, member) {
-        scoreColor = getColor(parseInt(member.score_num));
+        scoreColor = getColor(parseInt(member.Score));
         member['scoreColor'] = scoreColor;
-        lifetimeScoreColor = getColor(parseInt(member.lifetime_score));
+        lifetimeScoreColor = getColor(parseInt(member["Life"]));
         member['lifetimeScoreColor'] = lifetimeScoreColor;
         if (member.District) {
             PADistricts[member.District] = member;
@@ -202,11 +252,11 @@ function showInfo(results) {
         }).addTo(map);
 
 
-    PAboundaryLayer = L.geoJson(pa_state_senate_boundary_map, {
-        onEachFeature: onEachFeature,
-        style: data => geoStyle(data)
-    }).addTo(map);
-}
+        PAboundaryLayer = L.geoJson(pa_state_house_boundary_map, {
+            onEachFeature: onEachFeature,
+            style: data => geoStyle(data)
+        }).addTo(map);
+    }
 
     let district = getQueryVariable("district");
     if (district) {
@@ -222,7 +272,7 @@ function showInfo(results) {
 
 let geoStyle = function(data) {
     let legisId = data.properties.NAME;
-    let scoreColor = getColor(parseInt(PADistricts[legisId].score_num));
+    let scoreColor = getColor(parseInt(PADistricts[legisId].Score));
 
     return {
         fillColor: scoreColor,
@@ -231,7 +281,7 @@ let geoStyle = function(data) {
         color: "#fefefe",
         dashArray: "0",
         fillOpacity: 0.7,
-        className: "SD-"+legisId //add class to path
+        className: "HD-"+legisId //add class to path
     };
 };
 
@@ -285,7 +335,7 @@ function mapMemberDetailClick(e) {
     freeze = 1;
     let boundary = e.target;
     let legisId = parseInt(boundary.feature.properties.NAME);
-    queryString.push('district', "SD-"+legisId);
+    queryString.push('district', "HD-"+legisId);
     let member = memberDetailFunction(legisId);
 }
 
