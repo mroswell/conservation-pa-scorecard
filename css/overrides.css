@@ -172,7 +172,7 @@ button.btn {font-size: x-small;}
     width:30%;
   }
   .logo-item-caa {
-    width:40%;
+    max-width:25%;
     margin-left:10px
   }
 
@@ -204,7 +204,7 @@ button.btn {font-size: x-small;}
   }
 
   .logo-item-caa {
-    width:25%;
+    max-width:25%;
     margin-left:10px
   }
 
